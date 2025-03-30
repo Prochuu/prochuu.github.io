@@ -1,552 +1,648 @@
-/* Import Google Fonts */
+/* Import Google Fonts: Poppins dla tekstu, Playfair Display dla nagłówków */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
 
-/* Definicje Zmiennych Kolorów */
+/* ======================================== */
+/* === Definicje Zmiennych Kolorów CSS === */
+/* ======================================== */
 :root {
-  /* === Domyślny Motyw Ciemny === */
-  --bg-main: #2C3E50;          /* Neutral Dark */
-  --bg-card: #34495E;          /* Lżejszy wariant Dark */
-  --bg-section-alt: rgba(52, 73, 94, 0.3); /* Tło dla sekcji About/Contact/Palettes */
-  --bg-header: rgba(44, 62, 80, 0.9);/* Neutral Dark z większą alpha dla lepszej czytelności */
-  --bg-footer: #253444;         /* Ciemniejszy wariant Dark */
-  --bg-overlay: rgba(0, 0, 0, 0.5); /* Przyciemnienie dla Hero i Galerii */
+  /* ------------------------------ */
+  /* --- Domyślny Motyw CIEMNY --- */
+  /* ------------------------------ */
 
-  --text-light: #F8F9FA;        /* Neutral Light */
-  --text-medium: #B0BEC5;       /* Neutral Medium */
-  --text-dark: #2C3E50;         /* Neutral Dark (używane w motywie jasnym) */
-  --text-headings: #FFFFFF;     /* Biały dla głównych nagłówków H1, H2 */
-  --text-logo: #FFFFFF;
+  /* Tła */
+  --bg-main: #2C3E50;          /* Neutral Dark - Główne tło strony */
+  --bg-card: #34495E;          /* Lżejszy wariant Dark - Tło dla kart (opinie, umiejętności) */
+  --bg-section-alt: rgba(52, 73, 94, 0.3); /* Tło dla sekcji z lekkim wyróżnieniem (O Nas, Kontakt, Palety) */
+  --bg-header: rgba(44, 62, 80, 0.9); /* Tło nagłówka (z przezroczystością dla efektu blur) */
+  --bg-footer: #253444;         /* Ciemniejszy wariant Dark - Tło stopki */
+  --bg-overlay: rgba(0, 0, 0, 0.5); /* Przyciemnienie dla Hero i Galerii (na zdjęciach) */
+  --bg-input: var(--bg-main);      /* Tło dla pól formularza */
 
-  --accent-main: #045D5D;       /* Główny Akcent - Turkus */
-  --accent-hover: #11a7a7;       /* Jaśniejszy Turkus */
-  --accent-text-on-main: #FFFFFF; /* Tekst na głównym akcencie */
+  /* Teksty */
+  --text-on-dark: #F8F9FA;     /* Neutral Light - Główny tekst na ciemnym tle */
+  --text-medium: #B0BEC5;      /* Neutral Medium - Drugorzędny tekst, opisy */
+  --text-on-light: #2C3E50;    /* Neutral Dark - Główny tekst na jasnym tle (w motywie jasnym) */
+  --text-headings: #FFFFFF;    /* Biały - Kolor dla nagłówków H1, H2 */
+  --text-logo: #FFFFFF;         /* Biały - Kolor tekstu logo */
+  --text-placeholder: #7f8c8d; /* Kolor dla tekstu placeholder w inputach */
+  --text-on-accent: #FFFFFF;    /* Tekst na głównym kolorze akcentu */
 
-  --accent-subtle1: #F5B7B1;      /* Róż 1 (do pokazania w palecie) */
+  /* Akcenty */
+  --accent-main: #045D5D;       /* Główny Akcent - Turkus (przyciski, linki, ikony) */
+  --accent-hover: #11a7a7;       /* Jaśniejszy Turkus (dla efektu :hover) */
+
+  /* Akcenty Subtelne (głównie dla palety, ewentualnie cieni/ramek) */
+  --accent-subtle1: #F5B7B1;     /* Róż 1 */
   --accent-subtle1-shadow: rgba(245, 183, 177, 0.3); /* Róż 1 z alpha do cienia */
-  --accent-subtle2: #EBBED9;      /* Róż 2 (do pokazania w palecie) */
+  --accent-subtle2: #EBBED9;     /* Róż 2 */
 
-  --border-subtle: rgba(176, 190, 197, 0.15); /* Neutral Medium z alpha */
-  --border-input: #5A6E80;       /* Ciemniejsza ramka dla inputów */
-  --border-input-focus: var(--accent-main);
-  --shadow-card: rgba(0, 0, 0, 0.2);
-  --shadow-card-hover: rgba(0, 0, 0, 0.3);
+  /* Ramki i Cienie */
+  --border-subtle: rgba(176, 190, 197, 0.15); /* Neutral Medium z alpha - Delikatne ramki */
+  --border-input: #5A6E80;       /* Ciemniejsza ramka dla pól formularza */
+  --border-input-focus: var(--accent-main); /* Ramka pola formularza w stanie :focus */
+  --shadow-card: rgba(0, 0, 0, 0.2);        /* Cień dla kart */
+  --shadow-card-hover: rgba(0, 0, 0, 0.3);   /* Cień dla kart w stanie :hover */
+  --shadow-button: rgba(0, 0, 0, 0.2);      /* Cień dla przycisków */
+  --shadow-button-hover: rgba(0, 0, 0, 0.3); /* Cień dla przycisków w stanie :hover */
 }
 
+/* ------------------------------ */
+/* ---      Motyw JASNY       --- */
+/* ------------------------------ */
 body.light-theme {
-  /* === Motyw Jasny === */
+  /* Tła */
   --bg-main: #F8F9FA;          /* Neutral Light */
   --bg-card: #FFFFFF;          /* Biały */
   --bg-section-alt: rgba(233, 236, 239, 0.5); /* Jasnoszary z alpha */
   --bg-header: rgba(248, 249, 250, 0.9); /* Neutral Light z alpha */
   --bg-footer: #E9ECEF;         /* Jasnoszary */
   --bg-overlay: rgba(255, 255, 255, 0.3); /* Rozjaśnienie dla Hero i Galerii */
+  --bg-input: #FFFFFF;          /* Białe tło pól formularza */
 
-  --text-light: #2C3E50;        /* Neutral Dark (jako główny tekst) */
-  --text-medium: #6c757d;       /* Ciemniejszy szary */
-  --text-dark: #F8F9FA;         /* Neutral Light (używane w motywie ciemnym) */
-  --text-headings: #2C3E50;     /* Ciemny dla głównych nagłówków */
-  --text-logo: var(--text-light);
+  /* Teksty */
+  --text-on-dark: #F8F9FA;     /* Neutral Light (gdyby był ciemny element na jasnym tle) */
+  --text-medium: #6c757d;      /* Ciemniejszy szary dla drugorzędnego tekstu */
+  --text-on-light: #2C3E50;    /* Neutral Dark (główny tekst na jasnym) */
+  --text-headings: #2C3E50;    /* Neutral Dark (główne nagłówki) */
+  --text-logo: var(--text-on-light);
+  --text-placeholder: #adb5bd; /* Jaśniejszy placeholder */
+  --text-on-accent: #FFFFFF;    /* Tekst na akcencie pozostaje biały */
 
-  --accent-main: #045D5D;       /* Accent (pozostaje ten sam) */
-  --accent-hover: #034c4c;       /* Ciemniejszy Accent */
-  --accent-text-on-main: #FFFFFF;
+  /* Akcenty (mogą pozostać te same lub można je dostosować) */
+  --accent-main: #045D5D;       /* Turkus */
+  --accent-hover: #034c4c;       /* Ciemniejszy Turkus dla hover */
 
+  /* Akcenty Subtelne */
   --accent-subtle1: #F5B7B1;
-  --accent-subtle1-shadow: rgba(245, 183, 177, 0.4); /* Może być potrzebna większa alpha cienia */
+  --accent-subtle1-shadow: rgba(245, 183, 177, 0.4); /* Może być potrzebna większa alpha */
   --accent-subtle2: #EBBED9;
 
+  /* Ramki i Cienie */
   --border-subtle: rgba(44, 62, 80, 0.1);  /* Ciemniejsza subtelna ramka */
-  --border-input: #ced4da;       /* Jasnoszara ramka dla inputów */
+  --border-input: #ced4da;       /* Jasnoszara ramka dla pól formularza */
   --border-input-focus: var(--accent-main);
   --shadow-card: rgba(0, 0, 0, 0.1);      /* Jaśniejszy cień */
   --shadow-card-hover: rgba(0, 0, 0, 0.15);
+  --shadow-button: rgba(0, 0, 0, 0.1);
+  --shadow-button-hover: rgba(0, 0, 0, 0.15);
 }
 
-/* Reset and Base Styles */
+/* ======================================== */
+/* ===          Style Podstawowe        === */
+/* ======================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  scroll-behavior: smooth; /* Płynne przewijanie do sekcji */
+  /* Globalne przejścia dla płynnej zmiany motywu */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-light); /* Domyślny kolor tekstu */
-  line-height: 1.7; /* Zwiększony dla czytelności */
-  font-size: 16px; /* Domyślny rozmiar */
-  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif; /* Główna czcionka dla treści */
+  background-color: var(--bg-main); /* Tło z zmiennej */
+  color: var(--text-on-dark);    /* Kolor tekstu z zmiennej */
+  line-height: 1.7;              /* Interlinia dla lepszej czytelności */
+  font-size: 16px;               /* Standardowy rozmiar czcionki */
+  overflow-x: hidden;            /* Zapobiega poziomemu przewijaniu */
 }
 
 .container {
-  width: 90%;
-  max-width: 1140px; /* Standardowy kontener */
-  margin: 0 auto;
+  width: 90%;                    /* Szerokość kontenera */
+  max-width: 1140px;             /* Maksymalna szerokość kontenera */
+  margin: 0 auto;                /* Wyśrodkowanie kontenera */
 }
 
+/* Style dla nagłówków i linków */
 h1, h2, h3, .logo a {
-  font-family: 'Playfair Display', serif; /* Czcionka dla nagłówków */
-  color: var(--text-headings); /* Kolor głównych nagłówków */
+  font-family: 'Playfair Display', serif; /* Czcionka dla nagłówków i logo */
+  color: var(--text-headings);      /* Kolor nagłówków z zmiennej */
 }
 .logo span {
-    color: var(--accent-main);
+    color: var(--accent-main);     /* Kolor akcentu w logo */
+}
+
+a { /* Domyślne style linków */
+    color: var(--accent-main);     /* Kolor linków z akcentu */
+    text-decoration: none;       /* Usunięcie podkreślenia */
+    transition: color 0.3s ease; /* Płynne przejście koloru */
+}
+a:hover {
+    color: var(--accent-hover);    /* Kolor linku w stanie hover */
 }
 
 section {
-  padding: 80px 0; /* Większy padding sekcji */
+  padding: 80px 0;               /* Wewnętrzny odstęp (padding) dla sekcji */
 }
 
-/* --- Header/Navbar --- */
+img { /* Podstawowe style dla obrazków */
+    max-width: 100%;             /* Zapobiega wychodzeniu obrazków poza kontener */
+    height: auto;                /* Zachowuje proporcje */
+    display: block;              /* Usuwa dolny margines */
+}
+
+/* ======================================== */
+/* ===      Nagłówek i Nawigacja       === */
+/* ======================================== */
 header {
-  background: var(--bg-header);
+  background: var(--bg-header);          /* Tło z efektem blur */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  position: fixed;
+  padding: 1rem 0;                     /* Odstępy w nagłówku */
+  position: fixed;                     /* Przyklejony do góry */
   width: 100%;
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--border-subtle);
+  z-index: 1000;                       /* Nad innymi elementami */
+  border-bottom: 1px solid var(--border-subtle); /* Subtelna linia na dole */
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;                       /* Układ flexbox dla nawigacji */
+  justify-content: space-between;    /* Rozłożenie elementów (logo | linki) */
+  align-items: center;               /* Wyrównanie w pionie */
 }
 
 .logo a {
-  font-size: 2rem; /* Powiększone logo */
+  font-size: 2rem;                     /* Rozmiar czcionki logo */
   font-weight: 700;
-  text-decoration: none;
-  color: var(--text-logo);
+  color: var(--text-logo);             /* Kolor tekstu logo */
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 2.5rem; /* Większy odstęp */
+  list-style: none;                    /* Usunięcie punktorów listy */
+  display: flex;                       /* Linki w rzędzie */
+  align-items: center;               /* Wyrównanie w pionie (ważne dla przycisku motywu) */
+  gap: 2.5rem;                       /* Odstęp między linkami */
 }
 
 .nav-links a {
-  color: var(--text-light); /* Kolor linków dziedziczy z body */
-  text-decoration: none;
-  font-weight: 600; /* Grubsze linki */
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  position: relative;
-  padding-bottom: 0.4rem;
+  color: var(--text-on-dark);        /* Kolor linków nawigacyjnych */
+  font-weight: 600;                  /* Grubość czcionki */
+  font-size: 1rem;                   /* Rozmiar czcionki */
+  position: relative;                /* Dla pozycjonowania ::after */
+  padding-bottom: 0.4rem;            /* Odstęp na podkreślenie */
 }
 
+/* Podkreślenie linków nawigacyjnych */
 .nav-links a::after {
   content: '';
   position: absolute;
-  width: 0;
+  width: 0;                          /* Początkowo ukryte */
   height: 2px;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Centrowanie podkreślenia */
-  background-color: var(--accent-main);
-  transition: width 0.3s ease;
+  left: 50%;                         /* Start w środku */
+  transform: translateX(-50%);      /* Wycentrowanie */
+  background-color: var(--accent-main); /* Kolor podkreślenia */
+  transition: width 0.3s ease;       /* Animacja szerokości */
 }
 
+/* Efekt hover i stan aktywny dla linków nawigacyjnych */
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--accent-main);
+  color: var(--accent-main);         /* Zmiana koloru na akcent */
 }
-
 .nav-links a:hover::after,
 .nav-links a.active::after {
-  width: 70%; /* Podkreślenie nie na całej szerokości */
+  width: 70%;                        /* Pokazanie podkreślenia (niepełna szerokość) */
 }
 
-/* --- Theme Toggle Button --- */
+/* --- Przycisk Zmiany Motywu --- */
 #theme-toggle {
-    background: none;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-medium); /* Szary domyślnie */
+    background: none;                /* Brak tła */
+    border: 1px solid var(--border-subtle); /* Subtelna ramka */
+    color: var(--text-medium);       /* Kolor ikony */
     cursor: pointer;
-    font-size: 1rem;
-    padding: 0.4rem 0.6rem;
-    border-radius: 5px;
-    display: flex;
+    font-size: 1rem;                 /* Rozmiar ikony */
+    padding: 0.4rem 0.6rem;        /* Wewnętrzne odstępy */
+    border-radius: 5px;            /* Zaokrąglenie */
+    display: flex;                 /* Wycentrowanie ikony */
     align-items: center;
     justify-content: center;
-    margin-left: 1rem;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    margin-left: 1rem;             /* Odstęp od ostatniego linku */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Płynne przejścia */
 }
-
 #theme-toggle:hover {
-    color: var(--accent-main);
-    border-color: var(--accent-main);
+    color: var(--accent-main);     /* Zmiana koloru na hover */
+    border-color: var(--accent-main); /* Zmiana koloru ramki */
 }
-
+/* Ukrywanie/Pokazywanie odpowiedniej ikony w zależności od motywu */
 #theme-toggle .fa-sun { display: none; }
 #theme-toggle .fa-moon { display: inline-block; }
 body.light-theme #theme-toggle .fa-sun { display: inline-block; }
 body.light-theme #theme-toggle .fa-moon { display: none; }
 
-
-/* --- Hamburger Menu --- */
+/* --- Hamburger Menu (Mobilne) --- */
 .hamburger {
-  display: none;
+  display: none;                   /* Ukryty na desktopie */
   cursor: pointer;
   flex-direction: column;
-  gap: 5px;
-  margin-left: auto;
+  gap: 5px;                      /* Odstęp między kreskami */
+  margin-left: auto;             /* Przesunięcie w prawo */
 }
-
-.hamburger div {
-  width: 28px; /* Trochę większy */
+.hamburger div { /* Kreski hamburgera */
+  width: 28px;
   height: 3px;
-  background-color: var(--text-light);
-  transition: all 0.3s ease;
+  background-color: var(--text-on-dark); /* Kolor kresek */
+  transition: all 0.3s ease;       /* Animacja transformacji */
   border-radius: 2px;
 }
 
-/* --- Hero Section --- */
+/* ======================================== */
+/* ===         Sekcja Hero             === */
+/* ======================================== */
 #hero {
-  padding-top: 180px; /* Więcej miejsca od góry */
-  padding-bottom: 120px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-size: cover; /* Zapewnia pokrycie tła */
-  background-position: center center;
-  color: #FFFFFF; /* Tekst na Hero zawsze biały */
+  padding-top: 180px;              /* Odstęp od góry (uwzględniając header) */
+  padding-bottom: 120px;           /* Odstęp od dołu */
+  text-align: center;              /* Wyśrodkowanie tekstu */
+  position: relative;              /* Dla pozycjonowania ::before */
+  overflow: hidden;                /* Zapobiega wychodzeniu elementów poza sekcję */
+  background-size: cover;          /* Tło pokrywa całą sekcję */
+  background-position: center center; /* Centrowanie tła */
+  color: #FFFFFF;                  /* Domyślny kolor tekstu (zawsze biały na Hero) */
 }
-#hero::before { /* Nakładka przyciemniająca/rozjaśniająca */
+/* Nakładka przyciemniająca/rozjaśniająca tło Hero */
+#hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--bg-overlay);
-  z-index: 1;
+  background-color: var(--bg-overlay); /* Kolor nakładki z zmiennej */
+  z-index: 1;                      /* Pod tekstem, nad tłem */
 }
-
+/* Kontener na treść w Hero */
 .hero-content {
-  position: relative;
+  position: relative;              /* Nad nakładką */
   z-index: 2;
 }
-
 .hero-content h1 {
-  font-size: 3.8rem; /* Większy nagłówek */
+  font-size: 3.8rem;               /* Rozmiar głównego nagłówka */
   margin-bottom: 1rem;
-  color: #FFFFFF; /* Zawsze biały */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  color: #FFFFFF;                  /* Nagłówek zawsze biały */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Cień dla czytelności */
 }
-
-.hero-content h1 span {
-  color: var(--accent-main); /* Akcent zostaje */
-  /* Dodajmy cień również dla spana, jeśli chcemy */
+.hero-content h1 span { /* Akcent w nagłówku */
+  color: var(--accent-main);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
- body.light-theme .hero-content h1 span {
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Jaśniejszy cień w jasnym motywie */
- }
-
-
-.hero-content p {
-  font-size: 1.3rem; /* Większy opis */
+body.light-theme .hero-content h1 span { /* Inny cień w jasnym motywie */
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.hero-content p { /* Opis pod nagłówkiem */
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9); /* Lekko przezroczysty biały */
   margin-bottom: 2.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 700px;                /* Ograniczenie szerokości */
+  margin-left: auto; margin-right: auto; /* Wyśrodkowanie */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
- body.light-theme .hero-content p {
-     color: var(--text-light); /* Ciemniejszy tekst w jasnym motywie */
-     text-shadow: none;
- }
+body.light-theme .hero-content p { /* Styl opisu w jasnym motywie */
+    color: var(--text-on-light); /* Ciemniejszy tekst */
+    text-shadow: none;
+}
 
-
+/* Główny przycisk Call to Action */
 .cta-button {
-  display: inline-block;
-  background-color: var(--accent-main);
-  color: var(--accent-text-on-main);
-  padding: 1rem 2.5rem; /* Większy przycisk */
-  border-radius: 50px;
+  display: inline-block;           /* Zachowanie jak blok, ale w linii */
+  background-color: var(--accent-main); /* Kolor tła */
+  color: var(--text-on-accent);   /* Kolor tekstu */
+  padding: 1rem 2.5rem;            /* Wewnętrzne odstępy */
+  border-radius: 50px;           /* Zaokrąglenie */
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  border: none; /* Usunięcie ramki, jeśli niepotrzebna */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Animacje */
+  border: none;                    /* Usunięcie domyślnej ramki */
+  box-shadow: 0 4px 10px var(--shadow-button); /* Cień */
 }
-
 .cta-button:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-4px); /* Większe uniesienie */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: var(--accent-hover); /* Zmiana tła na hover */
+  transform: translateY(-4px);       /* Efekt lekkiego uniesienia */
+  box-shadow: 0 6px 15px var(--shadow-button-hover); /* Zwiększony cień */
 }
 
-/* --- Section Title General --- */
+/* ======================================== */
+/* ===     Style Ogólne dla Sekcji      === */
+/* ======================================== */
+/* Tytuł sekcji (np. "O Nas", "Oferta") */
 h2.section-title {
   text-align: center;
-  font-size: 2.8rem; /* Większy tytuł sekcji */
-  margin-bottom: 4rem; /* Większy odstęp pod tytułem */
-  color: var(--text-headings);
-  position: relative;
-  display: inline-block; /* Pozwala na centrowanie przez rodzica z text-align:center */
-  padding-bottom: 0.8rem;
+  font-size: 2.8rem;               /* Rozmiar czcionki */
+  margin-bottom: 4rem;             /* Odstęp pod tytułem */
+  color: var(--text-headings);     /* Kolor tekstu */
+  position: relative;              /* Dla ::after */
+  display: inline-block;           /* Pozwala na centrowanie przez rodzica */
+  padding-bottom: 0.8rem;          /* Odstęp na podkreślenie */
 }
-/* Wymaga rodzica z text-align:center */
+/* Wymaga kontenera nadrzędnego z text-align: center */
 section > .container > h2.section-title {
-    display: block; /* Reset dla bezpośredniego dziecka kontenera */
+    display: block;                /* Reset do bloku dla bezpośredniego dziecka kontenera */
     text-align: center;
 }
-
+/* Dekoracyjne podkreślenie pod tytułem sekcji */
 h2.section-title::after {
   content: '';
   position: absolute;
-  width: 80px; /* Dłuższe podkreślenie */
-  height: 4px; /* Grubsze podkreślenie */
+  width: 80px;                     /* Szerokość podkreślenia */
+  height: 4px;                     /* Grubość podkreślenia */
   bottom: 0;
-  left: 50%;
+  left: 50%;                       /* Centrowanie */
   transform: translateX(-50%);
-  background-color: var(--accent-main);
+  background-color: var(--accent-main); /* Kolor akcentu */
   border-radius: 2px;
 }
 
-/* --- O Nas Section --- */
+/* ======================================== */
+/* ===         Sekcja "O Nas"          === */
+/* ======================================== */
 #o-nas {
-    background-color: var(--bg-main); /* Tło główne */
+    background-color: var(--bg-main); /* Tło sekcji */
 }
 .o-nas-container {
-    display: flex;
-    align-items: center;
-    gap: 4rem; /* Większy odstęp */
+    display: flex;                 /* Układ flex dla zdjęcia i tekstu */
+    align-items: center;           /* Wyrównanie w pionie */
+    gap: 4rem;                   /* Odstęp między zdjęciem a tekstem */
 }
 .o-nas-image {
-    flex: 1; /* Zajmuje dostępną przestrzeń */
-    max-width: 45%; /* Ograniczenie szerokości obrazka */
+    flex: 1;                     /* Elastyczność */
+    max-width: 45%;              /* Maksymalna szerokość kolumny ze zdjęciem */
 }
 .o-nas-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px var(--shadow-card);
+    border-radius: 10px;         /* Zaokrąglenie rogów zdjęcia */
+    box-shadow: 0 10px 25px var(--shadow-card); /* Cień pod zdjęciem */
 }
 .o-nas-text {
-    flex: 1; /* Zajmuje dostępną przestrzeń */
-    max-width: 55%;
+    flex: 1;                     /* Elastyczność */
+    max-width: 55%;              /* Maksymalna szerokość kolumny z tekstem */
 }
-.o-nas-text h2.section-title {
-    text-align: left; /* Tytuł wyrównany do lewej w tej sekcji */
-    display: inline-block; /* Reset display dla :after */
-    left: 0;
-    transform: none;
-    margin-bottom: 2rem; /* Mniejszy margines pod tytułem w tekście */
+.o-nas-text h2.section-title {   /* Specyficzny styl tytułu w tej sekcji */
+    text-align: left;            /* Wyrównanie do lewej */
+    display: inline-block;
+    left: 0; transform: none;     /* Reset centrowania */
+    margin-bottom: 2rem;
 }
-.o-nas-text h2.section-title::after {
-    left: 0; /* Podkreślenie pod tekstem */
-    transform: none;
+.o-nas-text h2.section-title::after { /* Podkreślenie pod tytułem */
+    left: 0; transform: none;
 }
-.o-nas-text p {
-    color: var(--text-medium);
+.o-nas-text p { /* Styl akapitów */
+    color: var(--text-medium);   /* Kolor tekstu drugorzędnego */
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+    font-size: 1.05rem;          /* Lekko powiększona czcionka */
+    line-height: 1.8;            /* Zwiększona interlinia */
 }
 
-/* --- Oferta Section (Galeria) --- */
+/* ======================================== */
+/* ===    Sekcja "Oferta" (Galeria)     === */
+/* ======================================== */
 #oferta {
-    background-color: var(--bg-section-alt); /* Lekko inne tło */
+    background-color: var(--bg-section-alt); /* Lekko inne tło dla wyróżnienia */
 }
 .galeria {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Zawsze 3 kolumny na większych ekranach */
-    gap: 1.5rem;
+    display: grid;                 /* Układ siatki */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+    gap: 1.5rem;                 /* Odstępy między elementami */
 }
 .galeria-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px var(--shadow-card);
-    aspect-ratio: 4 / 3; /* Zachowaj proporcje obrazka */
+    position: relative;          /* Dla pozycjonowania overlay */
+    overflow: hidden;            /* Ukrycie części obrazka przy zoomie */
+    border-radius: 8px;          /* Zaokrąglenie rogów */
+    box-shadow: 0 5px 15px var(--shadow-card); /* Cień */
+    aspect-ratio: 4 / 3;         /* Stałe proporcje 4:3 */
+    cursor: pointer;             /* Wskazanie interaktywności */
 }
 .galeria-item img {
-    width: 100%;
+    width: 100%;                 /* Obrazek wypełnia kontener */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;           /* Skalowanie z zachowaniem proporcji i przycięciem */
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease; /* Animacja zoomu */
 }
 .galeria-item:hover img {
-    transform: scale(1.1); /* Efekt lekkiego zoomu */
+    transform: scale(1.1);       /* Efekt zoomu na hover */
 }
+/* Nakładka z tekstem na zdjęciu w galerii */
 .galeria-item-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); /* Gradient dla tekstu */
-    color: #FFFFFF;
-    padding: 1.5rem 1rem 1rem 1rem;
+    position: absolute;          /* Pozycjonowanie na zdjęciu */
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); /* Gradient dla lepszej czytelności */
+    color: #FFFFFF;              /* Kolor tekstu na nakładce */
+    padding: 1.5rem 1rem 1rem 1rem; /* Wewnętrzne odstępy */
     text-align: center;
-    opacity: 0; /* Ukryty domyślnie */
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;                  /* Domyślnie ukryta */
+    transform: translateY(20px); /* Lekkie wysunięcie z dołu */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Animacja pojawiania */
 }
 .galeria-item:hover .galeria-item-overlay {
-    opacity: 1; /* Pokaż na hover */
+    opacity: 1;                  /* Pokaż na hover */
     transform: translateY(0);
 }
-.galeria-item-overlay h3 {
+.galeria-item-overlay h3 { /* Tytuł kategorii na zdjęciu */
     margin: 0;
     font-size: 1.4rem;
     color: #FFFFFF;
     font-family: 'Playfair Display', serif;
 }
 
-/* --- Sezonowa Oferta Section --- */
+/* ======================================== */
+/* ===    Sekcja "Oferta Sezonowa"      === */
+/* ======================================== */
 #sezonowa-oferta {
-     background-color: var(--bg-main);
+     background-color: var(--bg-main); /* Tło główne */
 }
 .sezonowa-oferta-tresc {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 700px;            /* Ograniczenie szerokości */
+    margin: 0 auto;              /* Wyśrodkowanie */
     text-align: center;
-    background-color: var(--bg-card);
-    padding: 2.5rem;
+    background-color: var(--bg-card); /* Tło jak karty */
+    padding: 2.5rem;             /* Wewnętrzne odstępy */
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
 }
-.sezonowa-oferta-tresc p {
+.sezonowa-oferta-tresc p:first-of-type { /* Nagłówek "Aktualnie w ofercie" */
     color: var(--text-light);
     font-weight: 600;
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 .sezonowa-oferta-tresc ul {
-    list-style: none; /* Usunięcie domyślnych punktorów */
+    list-style: none;            /* Usunięcie kropek */
     padding: 0;
     margin-bottom: 1.5rem;
 }
-.sezonowa-oferta-tresc li {
+.sezonowa-oferta-tresc li { /* Elementy listy oferty */
     color: var(--text-medium);
     margin-bottom: 0.5rem;
     font-size: 1.05rem;
 }
-.sezonowa-oferta-tresc .edit-note {
+.sezonowa-oferta-tresc .edit-note { /* Notatka o edycji */
     font-size: 0.9rem;
     color: var(--text-medium);
     font-style: italic;
     margin-top: 1.5rem;
 }
 
-/* --- Opinie Section --- */
+/* ======================================== */
+/* ===     Sekcja "Opinie Klientów"     === */
+/* ======================================== */
 #opinie {
-    background-color: var(--bg-section-alt);
+    background-color: var(--bg-section-alt); /* Lekko inne tło */
 }
 .opinie-kontener {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsywne kolumny */
-    gap: 2rem;
+    /* Automatyczne dopasowanie liczby kolumn, minimalna szerokość 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;                   /* Odstęp między opiniami */
 }
 .opinia {
-  background-color: var(--bg-card);
-  padding: 2rem;
+  background-color: var(--bg-card); /* Tło karty opinii */
+  padding: 2rem;                 /* Wewnętrzne odstępy */
   border-radius: 8px;
-  box-shadow: 0 4px 10px var(--shadow-card);
-  border-left: 5px solid var(--accent-main);
-  position: relative;
+  box-shadow: 0 4px 10px var(--shadow-card); /* Cień */
+  border-left: 5px solid var(--accent-main); /* Akcent kolorystyczny z lewej */
+  position: relative;            /* Dla ::before */
 }
 /* Opcjonalna ikona cytatu */
 .opinia::before {
-    content: '\f10d';
+    content: '\f10d'; /* Ikona cudzysłowu z Font Awesome */
     font-family: 'Font Awesome 6 Free'; font-weight: 900;
-    position: absolute; top: 1rem; left: -12px;
-    font-size: 1.8rem; color: var(--accent-main); opacity: 0.3;
+    position: absolute; top: 1rem; left: -12px; /* Pozycjonowanie ikony */
+    font-size: 1.8rem; color: var(--accent-main); opacity: 0.3; /* Styl ikony */
 }
-
-.opinia p {
+.opinia p { /* Tekst opinii */
     font-style: italic;
     color: var(--text-medium);
     margin-bottom: 1rem;
-    line-height: 1.8;
+    line-height: 1.8;          /* Lepsza czytelność */
 }
-.opinia p.opinia-autor {
+.opinia p.opinia-autor { /* Autor opinii */
     font-style: normal;
     font-weight: 600;
-    text-align: right;
+    text-align: right;         /* Wyrównanie do prawej */
     color: var(--text-light);
     margin-bottom: 0;
 }
 
-/* --- Instagram Section --- */
+/* ======================================== */
+/* ===        Sekcja "Instagram"        === */
+/* ======================================== */
 #instagram {
-     background-color: var(--bg-main);
+     background-color: var(--bg-main); /* Tło główne */
      text-align: center;
 }
-#instagram p {
+#instagram p { /* Opis pod tytułem */
     color: var(--text-medium);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
 }
-.instagram-link {
-    display: inline-flex;
+.instagram-link { /* Przycisk/link do Instagrama */
+    display: inline-flex;        /* Ikona i tekst w linii */
     align-items: center;
-    background-color: var(--accent-main);
-    color: var(--accent-text-on-main);
-    padding: 0.8rem 1.8rem;
+    background-color: var(--accent-main); /* Tło akcentu */
+    color: var(--text-on-accent);/* Kolor tekstu */
+    padding: 0.8rem 1.8rem;      /* Wewnętrzne odstępy */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animacje */
     margin-bottom: 2rem;
 }
 .instagram-link:hover {
-    background-color: var(--accent-hover);
-    transform: scale(1.05);
+    background-color: var(--accent-hover); /* Zmiana tła na hover */
+    transform: scale(1.05);        /* Lekkie powiększenie */
 }
-.instagram-link i {
+.instagram-link i { /* Ikona Instagrama */
     margin-right: 0.8rem;
     font-size: 1.5rem;
 }
-.instagram-placeholder {
+.instagram-placeholder { /* Miejsce na przyszły feed */
     margin-top: 2rem;
     padding: 3rem;
-    border: 2px dashed var(--border-subtle);
+    border: 2px dashed var(--border-subtle); /* Kreskowana ramka */
     color: var(--text-medium);
     border-radius: 8px;
 }
 
-/* --- Color Palettes Section --- */
+/* ======================================== */
+/* ===     Sekcja "Palety Kolorów"      === */
+/* ======================================== */
 #color-palettes {
-  background-color: var(--bg-section-alt);
+  background-color: var(--bg-section-alt); /* Tło sekcji */
 }
-#color-palettes .container { max-width: 1000px; }
-.palette-group {
+#color-palettes .container { max-width: 1000px; } /* Szerokość kontenera */
+
+.palette-group { /* Grupa dla jednej palety */
   margin-bottom: 3rem;
   background-color: var(--bg-card); /* Tło grupy */
   padding: 2rem;
   border-radius: 8px;
   border: 1px solid var(--border-subtle);
 }
-.palette-group h3 { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-headings); }
-.swatch-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-.color-swatch {
+.palette-group h3 { /* Tytuł palety */
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-headings);
+}
+.swatch-container { /* Kontener na kwadraty kolorów */
+    display: flex;
+    flex-wrap: wrap; /* Zawijanie elementów */
+    gap: 20px;       /* Odstęp między kwadratami */
+    justify-content: center;
+}
+.color-swatch { /* Pojedynczy kwadrat z kolorem i opisem */
   background-color: var(--bg-main); /* Tło karty koloru */
   border-radius: 8px;
   padding: 15px;
-  width: 160px;
+  width: 160px;                /* Stała szerokość */
   text-align: center;
   border: 1px solid var(--border-subtle);
   transition: transform 0.2s ease;
-  display: flex; /* Ułożenie w pionie */
+  display: flex;               /* Ułatwia pionowe centrowanie opisu */
   flex-direction: column;
 }
-.color-swatch:hover:not(.placeholder) { transform: scale(1.03); }
-.swatch-color { width: 100%; height: 80px; margin-bottom: 15px; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.1); }
-.swatch-info { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; } /* Centruje tekst w pionie */
-.swatch-role { font-size: 0.85em; color: var(--text-medium); margin-bottom: 5px; min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
-.swatch-value { font-size: 0.85em; color: var(--text-light); user-select: all; word-wrap: break-word; line-height: 1.4; }
-.swatch-value code { background-color: rgba(0, 0, 0, 0.2); padding: 2px 5px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; font-size: 0.95em; display: inline-block; margin-top: 2px;}
-body.light-theme .swatch-value code { background-color: rgba(0, 0, 0, 0.05); }
+.color-swatch:hover:not(.placeholder) { /* Efekt hover (ale nie dla placeholderów) */
+    transform: scale(1.03);
+}
+.swatch-color { /* Kwadrat pokazujący kolor */
+    width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Zawsze widoczna ramka */
+}
+.swatch-info { /* Kontener na opis koloru */
+    flex-grow: 1;              /* Zajmuje pozostałą przestrzeń */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Wyśrodkowanie tekstu w pionie */
+}
+.swatch-role { /* Opis roli koloru */
+    font-size: 0.85em;
+    color: var(--text-medium);
+    margin-bottom: 5px;
+    min-height: 2.5em;         /* Zapewnia miejsce na dwie linie */
+    display: flex; align-items: center; justify-content: center;
+}
+.swatch-value { /* Kod HEX i zmienna CSS */
+    font-size: 0.85em;
+    color: var(--text-on-dark); /* Kolor dziedziczony z body */
+    user-select: all;          /* Ułatwia zaznaczenie/kopiowanie */
+    word-wrap: break-word;     /* Łamanie długich nazw zmiennych */
+    line-height: 1.4;
+}
+.swatch-value code { /* Styl dla kodu HEX/zmiennej */
+    background-color: rgba(0, 0, 0, 0.2); /* Lekkie tło dla odróżnienia */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace; /* Czcionka monospace */
+    font-size: 0.95em;
+    display: inline-block;     /* Zapobiega łamaniu linii wewnątrz `code` */
+    margin-top: 2px;
+}
+body.light-theme .swatch-value code { /* Inne tło w jasnym motywie */
+    background-color: rgba(0, 0, 0, 0.05);
+}
+/* Style dla placeholderów przyszłej palety */
 .color-swatch.placeholder { opacity: 0.6; border-style: dashed; border-color: var(--text-medium); }
 .color-swatch.placeholder .swatch-color { background-color: var(--bg-card) !important; border-color: var(--text-medium); }
 .color-swatch.placeholder .swatch-role, .color-swatch.placeholder .swatch-value code { color: var(--text-medium); }
@@ -554,78 +650,106 @@ body.light-theme .swatch-value code { background-color: rgba(0, 0, 0, 0.05); }
 .palette-note { text-align: center; color: var(--text-medium); margin-top: 1rem; font-style: italic; font-size: 0.9rem;}
 
 
-/* --- Kontakt Section --- */
+/* ======================================== */
+/* ===        Sekcja "Kontakt"          === */
+/* ======================================== */
 #kontakt {
-     background-color: var(--bg-main);
+     background-color: var(--bg-main); /* Tło główne */
 }
 .kontakt-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    background-color: var(--bg-card);
-    padding: 3rem;
+    display: flex;                 /* Układ dwukolumnowy */
+    flex-wrap: wrap;               /* Zawijanie na mniejszych ekranach */
+    gap: 3rem;                   /* Odstęp między kolumnami */
+    background-color: var(--bg-card); /* Tło dla całego kontenera kontaktu */
+    padding: 3rem;               /* Wewnętrzne odstępy */
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
 }
+/* Kolumny formularza i informacji */
 .kontakt-form-wrapper, .kontakt-info-wrapper {
-    flex: 1;
-    min-width: 300px; /* Minimalna szerokość kolumny */
+    flex: 1;                     /* Elastyczne kolumny */
+    min-width: 300px;            /* Minimalna szerokość przed zawinięciem */
 }
+/* Tytuły w kolumnach kontaktu */
 .kontakt-form-wrapper h2.section-title,
 .kontakt-info-wrapper h3 {
-    text-align: left;
+    text-align: left;            /* Wyrównanie do lewej */
     display: inline-block;
     margin-bottom: 1.5rem;
 }
- .kontakt-form-wrapper h2.section-title { font-size: 2rem; padding-bottom: 0.5rem; }
- .kontakt-info-wrapper h3 { font-size: 1.6rem; color: var(--text-headings); }
+.kontakt-form-wrapper h2.section-title { /* Mniejszy tytuł w formularzu */
+    font-size: 2rem; padding-bottom: 0.5rem;
+    /* Usunięcie globalnego centrowania dla tego tytułu */
+    left: auto; transform: none; position: static;
+}
+.kontakt-form-wrapper h2.section-title::after { /* Podkreślenie pod tytułem */
+    left: 0; transform: none;
+}
 
-.kontakt-form-wrapper p:first-of-type { /* Opis pod tytułem formularza */
+.kontakt-info-wrapper h3 { /* Tytuł "Dane Kontaktowe" */
+    font-size: 1.6rem;
+    color: var(--text-headings);
+}
+/* Opis pod tytułem formularza */
+.kontakt-form-wrapper p:first-of-type {
     color: var(--text-medium);
     margin-bottom: 2rem;
 }
 
+/* Style dla grup formularza (etykieta + pole) */
 .form-group {
     margin-bottom: 1.5rem;
 }
 .form-group label {
-    display: block;
+    display: block;              /* Etykieta nad polem */
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--text-medium);
 }
+/* Style dla pól input i textarea */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid var(--border-input);
+    width: 100%;                 /* Pełna szerokość */
+    padding: 0.8rem 1rem;        /* Wewnętrzne odstępy */
+    border: 1px solid var(--border-input); /* Ramka */
     border-radius: 5px;
-    background-color: var(--bg-main); /* Tło pola */
-    color: var(--text-light); /* Kolor tekstu w polu */
+    background-color: var(--bg-input); /* Tło pola */
+    color: var(--text-on-dark); /* Kolor wpisywanego tekstu */
     font-size: 1rem;
+    font-family: 'Poppins', sans-serif; /* Użyj domyślnej czcionki */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+.form-group input::placeholder,
+.form-group textarea::placeholder { /* Styl tekstu zastępczego */
+    color: var(--text-placeholder);
+    opacity: 1; /* Firefox */
+}
+/* Efekt focus dla pól formularza */
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--border-input-focus);
-    box-shadow: 0 0 0 3px rgba(4, 93, 93, 0.2); /* Lekki glow */
+    outline: none;               /* Usunięcie domyślnego outline */
+    border-color: var(--border-input-focus); /* Zmiana koloru ramki */
+    box-shadow: 0 0 0 3px rgba(4, 93, 93, 0.2); /* Zewnętrzny cień/glow */
 }
 .form-group textarea {
-    resize: vertical;
+    resize: vertical;            /* Pozwól tylko na zmianę wysokości */
     min-height: 120px;
 }
-#kontakt .cta-button { /* Styl przycisku w formularzu */
-    display: block;
+/* Przycisk Wyślij w formularzu */
+#kontakt .cta-button {
+    display: block;              /* Przycisk na całą szerokość */
     width: 100%;
     margin-top: 1rem;
 }
-.form-status-message { /* Komunikat po wysłaniu (demo) */
+/* Komunikat o stanie formularza (demo) */
+.form-status-message {
     margin-top: 1rem;
     font-weight: 600;
     text-align: center;
+    min-height: 1.2em; /* Zarezerwuj miejsce na komunikat */
 }
+/* Notatka o nieaktywnym formularzu */
  .form-inactive-note {
      font-size: 0.9rem;
      color: var(--text-medium);
@@ -634,109 +758,143 @@ body.light-theme .swatch-value code { background-color: rgba(0, 0, 0, 0.05); }
      font-style: italic;
  }
 
+/* Style dla informacji kontaktowych (prawa kolumna) */
 .kontakt-info p {
-    display: flex;
-    align-items: start; /* Wyrównanie do góry dla wieloliniowych */
+    display: flex;               /* Ikona i tekst w jednej linii */
+    align-items: flex-start;     /* Wyrównanie do góry */
     margin-bottom: 1.5rem;
     color: var(--text-medium);
     font-size: 1.05rem;
 }
-.kontakt-info i {
+.kontakt-info i { /* Ikony kontaktowe */
     color: var(--accent-main);
     margin-right: 1rem;
-    margin-top: 0.2rem; /* Lekkie obniżenie ikony */
-    width: 20px; /* Stała szerokość dla wyrównania */
+    margin-top: 0.2rem;          /* Lekkie obniżenie dla lepszego wyrównania */
+    width: 20px;                 /* Stała szerokość ikony */
     text-align: center;
 }
-.kontakt-info strong {
+.kontakt-info strong { /* Etykieta (np. "Adres:") */
     color: var(--text-light);
     display: block;
     margin-bottom: 0.2rem;
 }
- .kontakt-info span.edit-placeholder {
-     color: var(--text-light); /* Placeholder danych jest jaśniejszy */
+ .kontakt-info span.edit-placeholder { /* Placeholder dla danych */
+     color: var(--text-light);
  }
-.kontakt-info a {
-    color: var(--text-light); /* Linki telefoniczne/mailowe */
+.kontakt-info a { /* Linki w danych kontaktowych (tel, mail) */
+    color: var(--text-light);    /* Jaśniejszy kolor linku */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 .kontakt-info a:hover {
     color: var(--accent-main);
 }
+/* Kontener na mapę */
 .map-placeholder {
     margin-top: 2rem;
     border-radius: 8px;
-    overflow: hidden; /* Dla zaokrąglenia ramki iframe */
+    overflow: hidden;            /* Aby ramka iframe nie wystawała poza zaokrąglenie */
     border: 1px solid var(--border-subtle);
 }
 .map-placeholder p { margin: 1rem 1rem 0.5rem 1rem; font-weight: 600; color: var(--text-light); }
-.map-placeholder iframe { display: block; border: none; } /* Usuwa domyślną ramkę */
+.map-placeholder iframe { display: block; border: none; } /* Styl dla iframe mapy */
 
+/* Informacje o dostawie */
 .delivery-info {
     margin-top: 2rem;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-subtle); /* Separator */
     padding-top: 1.5rem;
 }
 .delivery-info h3 { font-size: 1.2rem; color: var(--text-light); margin-bottom: 0.5rem; }
 .delivery-info p { color: var(--text-medium); }
 
 
-/* --- Footer --- */
+/* ======================================== */
+/* ===           Stopka                 === */
+/* ======================================== */
 footer {
-  background-color: var(--bg-footer);
-  color: var(--text-medium);
+  background-color: var(--bg-footer); /* Tło stopki */
+  color: var(--text-medium);       /* Kolor tekstu w stopce */
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 4rem;
+  padding: 2rem 0;                 /* Wewnętrzne odstępy */
+  margin-top: 4rem;                /* Odstęp od ostatniej sekcji */
   font-size: 0.9rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-subtle); /* Subtelna górna ramka */
 }
  footer p { margin-bottom: 0.3rem; }
 
+/* ======================================== */
+/* ===      Style Responsywne          === */
+/* ======================================== */
 
-/* --- Responsive Design --- */
+/* === Tablety (mniejsze niż 992px) === */
 @media (max-width: 992px) {
+    /* Dostosowanie sekcji "O Nas" do układu kolumnowego */
     .o-nas-container { flex-direction: column; text-align: center; }
     .o-nas-image { max-width: 70%; margin-bottom: 2rem; }
     .o-nas-text { max-width: 100%; }
     .o-nas-text h2.section-title { text-align: center; display: block; left: 50%; transform: translateX(-50%); }
     .o-nas-text h2.section-title::after { left: 50%; transform: translateX(-50%); }
-    .galeria { grid-template-columns: repeat(2, 1fr); } /* 2 kolumny na tabletach */
+
+    /* Zmiana układu galerii na 2 kolumny */
+    .galeria { grid-template-columns: repeat(2, 1fr); }
 }
 
-
+/* === Małe Tablety i Duże Telefony (mniejsze niż 768px) === */
 @media (max-width: 768px) {
+  /* Ukrycie linków nawigacji i pokazanie hamburgera */
   .nav-links {
-    display: none; position: absolute; top: 100%; left: 0; width: 100%;
-    background-color: var(--bg-main); flex-direction: column; align-items: center;
-    padding: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-top: 1px solid var(--border-subtle);
+    display: none; /* Ukryte domyślnie */
+    position: absolute; top: 100%; left: 0; width: 100%;
+    background-color: var(--bg-main); /* Tło rozwijanego menu */
+    flex-direction: column; align-items: center;
+    padding: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border-subtle);
   }
-  .nav-links.active { display: flex; }
+  .nav-links.active { display: flex; } /* Pokazywane przez JS */
   .nav-links li { margin: 0.5rem 0; width: 100%; text-align: center; }
+  /* Przeniesienie przycisku motywu do menu mobilnego */
   #theme-toggle { margin-left: 0; margin-top: 0.5rem; }
-  .hamburger { display: flex; }
-  .hamburger.active .line1 { transform: rotate(-45deg) translate(-6px, 7px); } /* Dostosowane transformacje */
+  .hamburger { display: flex; } /* Pokaż hamburger */
+
+  /* Animacja hamburgera w krzyżyk */
+  .hamburger.active .line1 { transform: rotate(-45deg) translate(-6px, 7px); }
   .hamburger.active .line2 { opacity: 0; }
   .hamburger.active .line3 { transform: rotate(45deg) translate(-6px, -7px); }
 
+  /* Zmniejszenie czcionek i odstępów */
   h1 { font-size: 3rem; }
   h2.section-title { font-size: 2.2rem; }
   .hero-content p { font-size: 1.1rem; }
   .cta-button { padding: 0.8rem 2rem; font-size: 1rem; }
-  section { padding: 60px 0; }
-  .galeria { grid-template-columns: repeat(2, 1fr); } /* Nadal 2 kolumny */
-  .kontakt-container { flex-direction: column; }
+  section { padding: 60px 0; } /* Mniejszy padding sekcji */
+
+  /* Galeria pozostaje 2-kolumnowa */
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+
+  /* Kontener kontaktu przechodzi w układ kolumnowy */
+  .kontakt-container { flex-direction: column; padding: 2rem; } /* Mniejszy padding na mobilnych */
 }
 
+/* === Małe Telefony (mniejsze niż 576px) === */
 @media (max-width: 576px) {
      h1 { font-size: 2.5rem; }
      .hero-content p { font-size: 1rem; }
-     .galeria { grid-template-columns: 1fr; } /* Jedna kolumna na małych telefonach */
-     .o-nas-image { max-width: 90%; }
+     h2.section-title { font-size: 2rem; }
+
+     /* Galeria przechodzi w jedną kolumnę */
+     .galeria { grid-template-columns: 1fr; }
+     .o-nas-image { max-width: 90%; } /* Obrazek "O Nas" węższy */
+
+     /* Kwadraty palety kolorów po 2 w rzędzie */
      .color-swatch { width: calc(50% - 10px); padding: 10px;}
      .swatch-color { height: 60px; margin-bottom: 10px; }
      .palette-group h3 { font-size: 1.5rem; }
      .swatch-role { font-size: 0.8em; }
-     .swatch-value { font-size: 0.8em; }
+     .swatch-value { font-size: 0.8em; } /* Mniejsza czcionka dla kodu HEX */
+
+     /* Zmniejszenie odstępów w formularzu */
+     .kontakt-container { padding: 1.5rem; }
+     .form-group input, .form-group textarea { padding: 0.7rem 0.8rem; }
+     .cta-button { padding: 0.8rem 1.5rem; }
 }

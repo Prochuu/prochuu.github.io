@@ -4,39 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PiekaLenka - Piekarnia i Cukiernia w Krakowie</title>
+    <!-- Meta Opis dla SEO -->
     <meta name="description" content="PiekaLenka - Twoja rzemieślnicza piekarnia i cukiernia w Krakowie. Oferujemy świeże pieczywo, pyszne ciasta, torty na zamówienie i słodkie stoły. Sprawdź naszą ofertę!">
+    <!-- Meta Słowa Kluczowe dla SEO -->
     <meta name="keywords" content="Piekarnia Kraków, Cukiernia Kraków, Torty Kraków, Słodkie stoły Kraków, Pieczywo rzemieślnicze Kraków, PiekaLenka, Ciasta Kraków">
-    <!-- Link do CSS -->
+
+    <!-- Główny plik stylów CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Link do Font Awesome dla ikon -->
+    <!-- Biblioteka Font Awesome dla ikon (np. media społecznościowe, kontakt) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Link do Google Fonts (opcjonalnie, jeśli chcesz inne niż w CSS) -->
+    <!-- Czcionki Google Fonts: Poppins dla tekstu, Playfair Display dla nagłówków -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
 </head>
-<body> <!-- Klasa motywu będzie dodawana przez JS -->
+<body> <!-- Klasa .light-theme będzie dodawana/usuwana przez JavaScript -->
 
+    <!-- === Nagłówek i Nawigacja === -->
     <header>
         <nav class="container">
+            <!-- Logo Piekarni -->
             <div class="logo">
-                <!-- <img src="logo.png" alt="Logo PiekaLenka"> Zastąp prawdziwym logo -->
+                <!-- TODO: Zastąp 'a' obrazkiem logo, jeśli jest dostępne: <img src="logo.png" alt="Logo PiekaLenka"> -->
                 <a href="#">Pieka<span>Lenka</span></a>
             </div>
+            <!-- Główne Menu Nawigacyjne -->
             <ul class="nav-links">
                 <li><a href="#o-nas">O Nas</a></li>
                 <li><a href="#oferta">Oferta</a></li>
                 <li><a href="#opinie">Opinie</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
                 <li>
-                     <!-- Przycisk zmiany motywu -->
-                     <button id="theme-toggle" aria-label="Zmień motyw">
-                         <i class="fas fa-sun"></i>
-                         <i class="fas fa-moon"></i>
-                     </button>
+                    <!-- Przycisk do przełączania motywu Jasny/Ciemny -->
+                    <button id="theme-toggle" aria-label="Zmień motyw">
+                        <i class="fas fa-sun"></i> <!-- Ikona słońca (dla trybu jasnego) -->
+                        <i class="fas fa-moon"></i> <!-- Ikona księżyca (dla trybu ciemnego) -->
+                    </button>
                 </li>
             </ul>
+            <!-- Przycisk Hamburgera dla widoku mobilnego -->
             <div class="hamburger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -45,35 +51,44 @@
         </nav>
     </header>
 
+    <!-- Główna treść strony -->
     <main>
-        <!-- === Hero Section === -->
-        <section id="hero" style="background-image: url('https://images.unsplash.com/photo-1586900221776-4053380dff40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"> <!-- Zmień na bardziej pasujące tło piekarni -->
+        <!-- === Sekcja Hero (Główna) === -->
+        <section id="hero" style="background-image: url('https://images.unsplash.com/photo-1586900221776-4053380dff40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+            <!-- TODO: Zmień URL na bardziej pasujące tło piekarni (np. apetyczne wypieki, wnętrze) -->
             <div class="hero-content">
                 <h1>Piekarnia z <span>Sercem</span> Krakowa</h1>
                 <p>Odkryj smak prawdziwego, rzemieślniczego pieczywa i wyjątkowych słodkości, tworzonych z pasją w sercu Krakowa.</p>
+                <!-- Główny przycisk wezwania do działania -->
                 <a href="#kontakt" class="cta-button">Skontaktuj się i poznaj ofertę</a>
             </div>
         </section>
 
-        <!-- === O Nas Section === -->
+        <!-- === Sekcja "O Nas" === -->
         <section id="o-nas">
             <div class="container o-nas-container">
+                <!-- Zdjęcie ilustrujące piekarnię -->
                 <div class="o-nas-image">
-                     <img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2b53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Wnętrze piekarni PiekaLenka lub proces pieczenia"> <!-- Zmień zdjęcie -->
+                     <img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2b53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Wnętrze piekarni PiekaLenka lub proces pieczenia">
+                     <!-- TODO: Zastąp zdjęcie autentycznym zdjęciem piekarni/procesu -->
                 </div>
+                <!-- Tekst opisujący piekarnię -->
                 <div class="o-nas-text">
                     <h2 class="section-title">Nasza Historia</h2>
+                    <!-- TODO: Zaktualizuj Rok założenia i dostosuj treść -->
                     <p>W PiekaLenka łączymy tradycyjne receptury przekazywane z pokolenia na pokolenie z nowoczesnym podejściem do cukiernictwa i piekarstwa. Nasza przygoda zaczęła się w [Rok założenia] z miłości do autentycznych smaków i pragnienia dzielenia się nimi. Używamy tylko naturalnych, lokalnych składników, a każdy wypiek tworzymy z sercem.</p>
                     <p>Naszą misją jest dostarczanie Wam codziennie świeżego, pysznego pieczywa i wyjątkowych słodkości, które umilą każdy dzień. Specjalizujemy się również w tortach na zamówienie i przygotowaniu niezapomnianych słodkich stołów na Wasze uroczystości.</p>
                 </div>
             </div>
         </section>
 
-        <!-- === Oferta Section === -->
+        <!-- === Sekcja "Oferta" (Galeria) === -->
         <section id="oferta">
             <div class="container">
                 <h2 class="section-title">Co u Nas Znajdziesz?</h2>
+                <!-- Siatka 6 zdjęć reprezentujących ofertę -->
                 <div class="galeria">
+                     <!-- TODO: Zastąp wszystkie zdjęcia autentycznymi zdjęciami produktów/wnętrza PiekaLenki -->
                      <div class="galeria-item">
                          <img src="https://images.unsplash.com/photo-1534620808146-d33bb39128b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=770&q=80" alt="Świeże Pieczywo Rzemieślnicze Kraków">
                          <div class="galeria-item-overlay"><h3>Pieczywo</h3></div>
@@ -102,11 +117,12 @@
             </div>
         </section>
 
-        <!-- === Sezonowa Oferta Section === -->
+        <!-- === Sekcja "Oferta Sezonowa" === -->
         <section id="sezonowa-oferta">
             <div class="container">
                 <h2 class="section-title">Oferta Sezonowa</h2>
                 <div class="sezonowa-oferta-tresc">
+                    <!-- TODO: Regularnie aktualizuj tę treść -->
                     <p><strong>Aktualnie w ofercie (Lato):</strong></p>
                     <ul>
                         <li>☀️ Orzeźwiające tarty z owocami leśnymi i kremem cytrynowym</li>
@@ -119,11 +135,13 @@
             </div>
         </section>
 
-        <!-- === Opinie Section === -->
+        <!-- === Sekcja "Opinie Klientów" === -->
         <section id="opinie">
             <div class="container">
                 <h2 class="section-title">Co Mówią Nasi Klienci?</h2>
+                <!-- Kontener na opinie (np. 3 kolumny) -->
                 <div class="opinie-kontener">
+                    <!-- TODO: Zastąp przykładowe opinie prawdziwymi -->
                     <div class="opinia">
                         <p>"Najlepsza piekarnia w Krakowie! Zawsze świeże i pyszne pieczywo, a tort na urodziny córki był arcydziełem. Polecam!"</p>
                         <p class="opinia-autor">- Anna K.</p>
@@ -140,26 +158,28 @@
             </div>
         </section>
 
-         <!-- === Instagram Section === -->
+         <!-- === Sekcja "Instagram" === -->
         <section id="instagram">
             <div class="container">
                 <h2 class="section-title">Zobacz Nas na Instagramie</h2>
                 <p>Śledź nasze codzienne wypieki, nowości i promocje!</p>
+                <!-- TODO: Zaktualizuj link do prawdziwego profilu Instagram -->
                 <a href="https://www.instagram.com/twojprofil_piekalenka/" class="instagram-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i> @PiekaLenka
                 </a>
+                 <!-- Placeholder na przyszły feed z Instagrama -->
                  <div class="instagram-placeholder">
-                    [Tutaj w przyszłości można osadzić feed z Instagrama]
+                    [Tutaj w przyszłości można osadzić feed z Instagrama za pomocą zewnętrznych narzędzi lub API]
                 </div>
             </div>
         </section>
 
-        <!-- === Sekcja Palety Kolorów === -->
+        <!-- === Sekcja "Palety Kolorów" (Dodana na prośbę) === -->
         <section id="color-palettes">
              <div class="container">
                  <h2 class="section-title">Palety Kolorów</h2>
 
-                 <!-- Paleta Oryginalna (PiekaLenka) -->
+                 <!-- Paleta Oryginalna (PiekaLenka) - jako referencja -->
                  <div class="palette-group">
                      <h3>Paleta Pierwotna (Pomarańczowo-Brązowa)</h3>
                      <div class="swatch-container">
@@ -186,37 +206,37 @@
                      </div>
                  </div>
 
-                 <!-- Paleta Aktualna (Turkusowo-Różowa) -->
+                 <!-- Paleta Aktualna (Turkusowo-Różowa) - Obecnie używana -->
                  <div class="palette-group">
                      <h3>Paleta Aktualna (Turkusowo-Różowa)</h3>
                      <div class="swatch-container">
                         <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #2C3E50;"></div>
+                             <div class="swatch-color" style="background-color: var(--bg-dark);"></div> <!-- Użycie zmiennej CSS dla tła kwadratu -->
                              <div class="swatch-info"><p class="swatch-role">Tło Gł. / Tekst Jasny</p><p class="swatch-value"><code>#2C3E50</code><br><code>var(--bg-dark)</code><br><code>var(--text-on-light)</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #F8F9FA; border: 1px solid #eee;"></div>
+                             <div class="swatch-color" style="background-color: var(--bg-light); border: 1px solid #eee;"></div>
                              <div class="swatch-info"><p class="swatch-role">Tło Jasne / Tekst Gł.</p><p class="swatch-value"><code>#F8F9FA</code><br><code>var(--bg-light)</code><br><code>var(--text-on-dark)</code></p></div>
                          </div>
                           <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #045D5D;"></div>
+                             <div class="swatch-color" style="background-color: var(--accent-main);"></div>
                              <div class="swatch-info"><p class="swatch-role">Główny Akcent</p><p class="swatch-value"><code>#045D5D</code><br><code>var(--accent-main)</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #B0BEC5;"></div>
-                             <div class="swatch-info"><p class="swatch-role">Tekst Drugorzędny</p><p class="swatch-value"><code>#B0BEC5</code><br><code>var(--text-medium)</code></p></div>
+                             <div class="swatch-color" style="background-color: var(--text-medium);"></div> <!-- Uwaga: text-medium różni się w motywach -->
+                             <div class="swatch-info"><p class="swatch-role">Tekst Drugorzędny</p><p class="swatch-value"><code>#B0BEC5 / #6c757d</code><br><code>var(--text-medium)</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #F5B7B1;"></div>
+                             <div class="swatch-color" style="background-color: var(--accent-subtle1);"></div>
                              <div class="swatch-info"><p class="swatch-role">Akcent Subtelny 1</p><p class="swatch-value"><code>#F5B7B1</code><br><code>var(--accent-subtle1)</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #EBBED9;"></div>
+                             <div class="swatch-color" style="background-color: var(--accent-subtle2);"></div>
                              <div class="swatch-info"><p class="swatch-role">Akcent Subtelny 2</p><p class="swatch-value"><code>#EBBED9</code><br><code>var(--accent-subtle2)</code></p></div>
                          </div>
                           <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #34495E;"></div>
-                             <div class="swatch-info"><p class="swatch-role">Tło Kart/Sekcji Alt</p><p class="swatch-value"><code>#34495E</code><br><code>var(--bg-card)</code></p></div>
+                             <div class="swatch-color" style="background-color: var(--bg-card);"></div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Kart/Sekcji Alt</p><p class="swatch-value"><code>#34495E / #FFFFFF</code><br><code>var(--bg-card)</code></p></div>
                          </div>
                      </div>
                  </div>
@@ -239,13 +259,14 @@
          <!-- === Koniec Sekcji Palety Kolorów === -->
 
 
-        <!-- === Kontakt Section === -->
+        <!-- === Sekcja "Kontakt" === -->
         <section id="kontakt">
             <div class="container kontakt-container">
+                 <!-- Lewa kolumna: Formularz -->
                  <div class="kontakt-form-wrapper">
                      <h2 class="section-title">Skontaktuj się z Nami</h2>
-                     <p>Masz pytanie? Chcesz zamówić tort lub słodki stół? Napisz do nas!</p>
-                     <!-- UWAGA: Formularz jest nieaktywny na GitHub Pages -->
+                     <p>Masz pytanie? Chcesz zamówić tort lub słodki stół na wyjątkową okazję? Napisz do nas lub zadzwoń!</p>
+                     <!-- Formularz kontaktowy - tylko wygląd, brak funkcji wysyłania -->
                      <form id="contactForm">
                          <div class="form-group">
                              <label for="name">Imię:</label>
@@ -257,41 +278,50 @@
                         </div>
                          <div class="form-group">
                              <label for="message">Wiadomość:</label>
-                             <textarea id="message" name="message" rows="5" required></textarea>
+                             <textarea id="message" name="message" rows="5" required placeholder="Opisz swoje zamówienie lub pytanie..."></textarea>
                          </div>
-                         <button type="submit" class="cta-button">Wyślij (Demo)</button>
+                         <button type="submit" class="cta-button">Wyślij Zapytanie (Demo)</button>
+                         <!-- Komunikat dla użytkownika po kliknięciu Wyślij (Demo) -->
                          <p id="form-message" class="form-status-message"></p>
                      </form>
-                     <p class="form-inactive-note">(Formularz jest nieaktywny w tej wersji strony. Prosimy o kontakt telefoniczny lub mailowy.)</p>
+                     <!-- Informacja o braku aktywności formularza -->
+                     <p class="form-inactive-note">(Formularz jest obecnie nieaktywny. Prosimy o kontakt telefoniczny lub mailowy podany obok.)</p>
                 </div>
+                <!-- Prawa kolumna: Dane kontaktowe, Mapa, Dostawa -->
                 <div class="kontakt-info-wrapper">
                      <h3>Dane Kontaktowe</h3>
                      <div class="kontakt-info">
+                        <!-- TODO: Wypełnij prawdziwe dane kontaktowe -->
                         <p><i class="fas fa-map-marker-alt"></i> <strong>Adres:</strong><br><span class="edit-placeholder">[Ulica i numer], [Kod pocztowy] Kraków</span></p>
                         <p><i class="fas fa-phone"></i> <strong>Telefon:</strong><br><a href="tel:+48000000000"><span class="edit-placeholder">[+48 000 000 000]</span></a></p>
                         <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong><br><a href="mailto:kontakt@piekalenka.pl"><span class="edit-placeholder">[kontakt@piekalenka.pl]</span></a></p>
                      </div>
+                     <!-- Mapa Google -->
                      <div class="map-placeholder">
                         <p><strong>Znajdź nas na mapie:</strong></p>
+                        <!-- TODO: Zaktualizuj link 'src' w iframe na poprawny kod osadzenia mapy Google dla adresu PiekaLenki -->
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.621708176496!2d19.93724827778866!3d50.0614311715972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b1c46f57c2f%3A0x7a525f9f9776282!2sRynek%20G%C5%82%C3%B3wny%2C%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700753474942!5m2!1spl!2spl" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                      </div>
+                     <!-- Informacje o dostawie -->
                       <div class="delivery-info">
                         <h3>Informacje o Dostawie</h3>
-                        <p class="edit-placeholder">[Tutaj wpisz aktualne informacje o możliwościach, kosztach i obszarze dostawy. Np. "Dostawa na terenie Krakowa gratis przy zamówieniu powyżej 100 zł."]</p>
+                        <!-- TODO: Wpisz tutaj aktualne informacje o dostawie -->
+                        <p class="edit-placeholder">[Tutaj wpisz aktualne informacje o możliwościach, kosztach i obszarze dostawy. Np. "Dostawa na terenie Krakowa gratis przy zamówieniu powyżej 100 zł." Możesz dodać link do szczegółów.]</p>
                      </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- === Stopka === -->
     <footer>
         <div class="container">
             <p>© 2024 PiekaLenka. Wszelkie prawa zastrzeżone.</p>
-             <p>Projekt strony: [Twoje Imię/Nazwa - opcjonalnie]</p>
+             <p>Projekt strony: [Twoje Imię/Nazwa - opcjonalnie]</p> <!-- Możesz usunąć lub zostawić -->
         </div>
     </footer>
 
-    <!-- Skrypt do obsługi przełącznika motywu i hamburgera -->
+    <!-- Plik JavaScript (musi być na końcu body) -->
     <script src="script.js"></script>
 </body>
 </html>
