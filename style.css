@@ -1,114 +1,619 @@
-/* --- Color Palettes Section --- */
-#color-palettes {
-  background-color: #2C3E50; /* Neutral Dark - spójne tło jak reszta */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Definicje Zmiennych Kolorów */
+:root {
+  /* === Domyślny Motyw Ciemny === */
+  --bg-main: #2C3E50;          /* Neutral Dark */
+  --bg-card: #34495E;          /* Lżejszy wariant Dark */
+  --bg-section-alt: rgba(52, 73, 94, 0.3); /* Tło dla sekcji About/Contact */
+  --bg-header: rgba(44, 62, 80, 0.85);/* Neutral Dark z alpha */
+  --bg-footer: #253444;         /* Ciemniejszy wariant Dark */
+
+  --text-light: #F8F9FA;        /* Neutral Light */
+  --text-medium: #B0BEC5;       /* Neutral Medium */
+  --text-dark: #2C3E50;         /* Neutral Dark (używane w motywie jasnym) */
+
+  --accent-main: #045D5D;       /* Accent */
+  --accent-hover: #11a7a7;       /* Jaśniejszy Accent */
+  --accent-text-on-main: #FFFFFF; /* Tekst na głównym akcencie */
+
+  /* Używane w cieniu - z alpha dla subtelności */
+  --accent-subtle1-raw: #F5B7B1; /* Primary 1 (do pokazania w palecie) */
+  --accent-subtle1-shadow: rgba(245, 183, 177, 0.3);
+  /* --accent-subtle2: #EBBED9;  Primary 2 - nieużywany aktywnie */
+
+  --border-subtle: rgba(176, 190, 197, 0.1); /* Neutral Medium z alpha */
+  --shadow-card: rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme {
+  /* === Motyw Jasny === */
+  --bg-main: #F8F9FA;          /* Neutral Light */
+  --bg-card: #FFFFFF;          /* Biały */
+  --bg-section-alt: rgba(233, 236, 239, 0.5); /* Jasnoszary z alpha */
+  --bg-header: rgba(248, 249, 250, 0.85);/* Neutral Light z alpha */
+  --bg-footer: #E9ECEF;         /* Jasnoszary */
+
+  --text-light: #2C3E50;        /* Neutral Dark (jako główny tekst) */
+  --text-medium: #6c757d;       /* Ciemniejszy szary */
+  --text-dark: #F8F9FA;         /* Neutral Light (używane w motywie ciemnym) */
+
+  --accent-main: #045D5D;       /* Accent (pozostaje ten sam) */
+  --accent-hover: #034c4c;       /* Ciemniejszy Accent */
+  --accent-text-on-main: #FFFFFF; /* Tekst na akcencie pozostaje biały */
+
+  --accent-subtle1-raw: #F5B7B1;
+  --accent-subtle1-shadow: rgba(245, 183, 177, 0.3);
+
+  --border-subtle: rgba(44, 62, 80, 0.1);  /* Ciemniejsza subtelna ramka */
+  --shadow-card: rgba(0, 0, 0, 0.1);      /* Jaśniejszy cień */
+  --shadow-card-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Płynne przejście motywu */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Header/Navbar --- */
+header {
+  background: var(--bg-header);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-main);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Wyśrodkowanie przycisku motywu */
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-main);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-main);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    display: flex; /* Ułatwia ukrywanie/pokazywanie ikon */
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem; /* Odstęp od ostatniego linku */
+}
+
+#theme-toggle:hover {
+    color: var(--accent-main);
+}
+
+#theme-toggle .fa-sun { display: none; } /* Domyślnie ukryj słońce (ciemny motyw) */
+#theme-toggle .fa-moon { display: inline-block; } /* Domyślnie pokaż księżyc */
+
+body.light-theme #theme-toggle .fa-sun { display: inline-block; } /* Pokaż słońce w jasnym motywie */
+body.light-theme #theme-toggle .fa-moon { display: none; } /* Ukryj księżyc w jasnym motywie */
+
+
+/* --- Hamburger Menu --- */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: auto; /* Wypchnij w prawo, jeśli nav-links są ukryte */
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+/* --- Hero Section --- */
+#hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-main); /* Upewnij się, że ma tło */
+}
+
+/* Opcjonalne subtelne tło (można odkomentować) */
+/*
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(4, 93, 93, 0.05), transparent 70%);
+  animation: rotate 25s linear infinite;
+  z-index: 0;
+}
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+*/
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.hero-content h1 span {
+  color: var(--accent-main);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent-main);
+  color: var(--accent-text-on-main);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid var(--accent-main);
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+/* --- Sections General --- */
+section {
   padding: 60px 0;
 }
 
+h2.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--text-light);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 0.5rem;
+}
+
+h2.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-main);
+}
+
+/* --- About Me Section --- */
+#about {
+  background-color: var(--bg-section-alt);
+  border-radius: 10px;
+  margin: 0 5%; /* Dodaje marginesy boczne */
+  margin-bottom: 30px;
+  padding: 40px 20px;
+}
+#about p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-medium);
+}
+
+/* --- Skills Section --- */
+#skills {
+    background-color: var(--bg-main);
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.skill-item {
+  background-color: var(--bg-card);
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-subtle);
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-card);
+}
+
+.skill-item i {
+  font-size: 3rem;
+  color: var(--accent-main);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.skill-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  color: var(--text-light);
+}
+
+/* --- Projects Section --- */
+#projects {
+    background-color: var(--bg-main);
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-subtle);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow-card-hover), 0 0 18px 3px var(--accent-subtle1-shadow);
+}
+
+.project-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background-color: var(--bg-main); /* Tło dla placeholderów */
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.project-info p {
+  color: var(--text-medium);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.project-links a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: var(--accent-main);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+.project-links i {
+    margin-right: 0.3rem;
+}
+
+/* --- Color Palettes Section --- */
+#color-palettes {
+  background-color: var(--bg-main);
+}
+
 #color-palettes .container {
-    max-width: 1000px; /* Można dostosować szerokość kontenera dla tej sekcji */
+    max-width: 1000px;
 }
 
 .palette-group {
-  margin-bottom: 3rem; /* Odstęp między grupami palet */
-  background-color: rgba(52, 73, 94, 0.3); /* Tło grupy jak w sekcji About/Contact */
+  margin-bottom: 3rem;
+  background-color: var(--bg-section-alt);
   padding: 2rem;
   border-radius: 8px;
-  border: 1px solid rgba(176, 190, 197, 0.1); /* Subtelna ramka */
+  border: 1px solid var(--border-subtle);
 }
 
 .palette-group h3 {
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  color: #F8F9FA; /* Neutral Light */
+  color: var(--text-light);
 }
 
 .swatch-container {
   display: flex;
-  flex-wrap: wrap; /* Kwadraty będą się zawijać */
-  gap: 20px; /* Odstęp między kwadratami */
-  justify-content: center; /* Wyśrodkowanie kwadratów w kontenerze */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .color-swatch {
-  background-color: #34495E; /* Tło karty koloru (jak karty projektów) */
+  background-color: var(--bg-card);
   border-radius: 8px;
   padding: 15px;
-  width: 160px; /* Szerokość karty koloru */
+  width: 160px;
   text-align: center;
-  border: 1px solid rgba(176, 190, 197, 0.1); /* Ramka karty */
+  border: 1px solid var(--border-subtle);
   transition: transform 0.2s ease;
 }
 
-.color-swatch:hover:not(.placeholder) { /* Lekkie powiększenie na hover dla nie-placeholderów */
+.color-swatch:hover:not(.placeholder) {
     transform: scale(1.03);
 }
 
 .swatch-color {
   width: 100%;
-  height: 80px; /* Wysokość kwadratu z kolorem */
+  height: 80px;
   margin-bottom: 15px;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Cienka ramka wokół koloru, widoczna przy jasnych kolorach */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Always show border for light colors */
 }
 
-.swatch-info {
-    /* Można dodać style jeśli potrzeba */
-}
+.swatch-info { } /* Placeholder */
 
 .swatch-role {
   font-size: 0.9em;
-  color: #B0BEC5; /* Neutral Medium */
+  color: var(--text-medium);
   margin-bottom: 5px;
-  min-height: 2.7em; /* Zapewnia miejsce na 2 linie opisu */
-  display: flex; /* Centrowanie tekstu w pionie */
+  min-height: 2.7em;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .swatch-value {
-  font-size: 0.95em;
-  color: #F8F9FA; /* Neutral Light */
-  user-select: all; /* Ułatwia kopiowanie kodu HEX */
+  font-size: 0.9em; /* Zmniejszone dla lepszego dopasowania */
+  color: var(--text-light);
+  user-select: all;
+  word-wrap: break-word; /* Lamie długie nazwy zmiennych */
 }
 
 .swatch-value code {
-  background-color: rgba(44, 62, 80, 0.6); /* Tło dla kodu HEX */
+  background-color: rgba(44, 62, 80, 0.6);
   padding: 2px 5px;
   border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+}
+body.light-theme .swatch-value code {
+    background-color: rgba(233, 236, 239, 0.8); /* Jaśniejsze tło kodu w jasnym motywie */
 }
 
-/* Style dla placeholderów przyszłej palety */
+
 .color-swatch.placeholder {
     opacity: 0.6;
     border-style: dashed;
+    border-color: var(--text-medium);
+}
+.color-swatch.placeholder .swatch-color {
+    background-color: var(--bg-main) !important; /* Użyj tła głównego jako placeholder */
+    border-color: var(--text-medium);
 }
 .color-swatch.placeholder .swatch-role,
 .color-swatch.placeholder .swatch-value code {
-    color: #888; /* Ciemniejszy szary dla placeholderów */
+    color: var(--text-medium);
 }
 .color-swatch.placeholder .swatch-value code {
      background-color: transparent;
 }
 
-/* Poprawki responsywności dla palet */
+
+/* --- Contact Section --- */
+#contact {
+  background-color: var(--bg-section-alt);
+  border-radius: 10px;
+  margin: 0 5%; /* Dodaje marginesy boczne */
+  padding: 40px 20px;
+}
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+.contact-info a {
+  color: var(--accent-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.contact-info i {
+    margin-right: 0.5rem;
+    color: var(--accent-main);
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    font-size: 2rem;
+    margin: 0 1rem;
+    color: var(--text-medium);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-main);
+    transform: scale(1.1);
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--bg-footer);
+  color: var(--text-medium);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Ukryte domyślnie */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-main); /* Tło menu mobilnego */
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .nav-links.active {
+    display: flex; /* Pokazywane przez JS */
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+    width: 100%; /* Linki zajmują całą szerokość */
+    text-align: center;
+  }
+  /* Przeniesienie przycisku motywu do menu mobilnego */
+  #theme-toggle {
+      margin-left: 0;
+      margin-top: 0.5rem; /* Odstęp w menu mobilnym */
+  }
+
+
+  .hamburger {
+    display: flex; /* Pokaż hamburger */
+  }
+
+  .hamburger.active .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+  .hamburger.active .line2 { opacity: 0; }
+  .hamburger.active .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+  .hero-content h1 { font-size: 2.8rem; }
+  .hero-content p { font-size: 1rem; }
+  h2.section-title { font-size: 2rem; }
+  #about, #contact { margin: 0 2%; margin-bottom: 30px;} /* Mniejsze marginesy boczne */
+}
+
 @media (max-width: 480px) {
-    .color-swatch {
-        width: calc(50% - 10px); /* Dwa kwadraty w rzędzie na małych ekranach */
-        padding: 10px;
-    }
-    .swatch-color {
-        height: 60px;
-        margin-bottom: 10px;
-    }
-     .palette-group h3 {
-        font-size: 1.5rem;
-    }
-     .swatch-role {
-         font-size: 0.8em;
-     }
-     .swatch-value {
-         font-size: 0.9em;
-     }
+    .hero-content h1 { font-size: 2.2rem; }
+    .cta-button { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+    .projects-container { grid-template-columns: 1fr; }
+    .color-swatch { width: calc(50% - 10px); padding: 10px;}
+    .swatch-color { height: 60px; margin-bottom: 10px; }
+    .palette-group h3 { font-size: 1.5rem; }
+    .swatch-role { font-size: 0.8em; }
+    .swatch-value { font-size: 0.9em; }
 }

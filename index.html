@@ -1,129 +1,276 @@
-<!-- === Sekcja Palety Kolorów === -->
-<section id="color-palettes">
-    <div class="container">
-        <h2 class="section-title">Palety Kolorów</h2>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prochuu - Portfolio</title> <!-- Zmień tytuł, jeśli chcesz -->
+    <meta name="description" content="Portfolio programisty front-end. Zobacz moje projekty i umiejętności.">
+    <!-- Link do CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link do Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link do Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body> <!-- Klasa motywu będzie dodawana przez JS -->
 
-        <!-- Paleta Oryginalna -->
-        <div class="palette-group">
-            <h3>Paleta Oryginalna (Niebieskie Akcenty)</h3>
-            <div class="swatch-container">
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #1a1a2e;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Główne Tło</p>
-                        <p class="swatch-value"><code>#1a1a2e</code></p>
-                    </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #e0e0e0; border: 1px solid #ccc;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tekst Główny</p>
-                        <p class="swatch-value"><code>#e0e0e0</code></p>
-                    </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #4dabf7;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Akcent (Linki, Przyciski)</p>
-                        <p class="swatch-value"><code>#4dabf7</code></p>
-                    </div>
-                </div>
-                 <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #1f1f38;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tło Kart/Sekcji</p>
-                        <p class="swatch-value"><code>#1f1f38</code></p>
-                    </div>
-                </div>
-                 <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #adb5bd;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tekst Drugorzędny/Ikony</p>
-                        <p class="swatch-value"><code>#adb5bd</code></p>
-                    </div>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="#">Proch<span>uu</span>.</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">O mnie</a></li>
+                <li><a href="#skills">Umiejętności</a></li>
+                <li><a href="#projects">Projekty</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li>
+                     <!-- Przycisk zmiany motywu -->
+                     <button id="theme-toggle" aria-label="Zmień motyw">
+                         <i class="fas fa-sun"></i> <!-- Ikona słońca dla motywu jasnego -->
+                         <i class="fas fa-moon"></i> <!-- Ikona księżyca dla motywu ciemnego -->
+                     </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- === Hero Section === -->
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>Cześć, jestem <span>Paweł</span></h1>
+                <p>Front-End Developer z pasją do tworzenia nowoczesnych i responsywnych interfejsów użytkownika.</p>
+                <a href="#projects" class="cta-button">Zobacz Moje Projekty</a>
+            </div>
+        </section>
+
+        <!-- === About Me Section === -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">O mnie</h2>
+                <p>
+                    Jestem ambitnym programistą front-end, skupionym na technologiach webowych. Specjalizuję się w HTML, CSS i JavaScript, z rosnącym zainteresowaniem frameworkami takimi jak React. Uwielbiam przekształcać pomysły w interaktywne i estetyczne strony internetowe. Stale się rozwijam, ucząc się nowych technologii i szukając wyzwań, które pozwolą mi poszerzać horyzonty.
+                </p>
+            </div>
+        </section>
+
+        <!-- === Skills Section === -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Umiejętności</h2>
+                <div class="skills-container">
+                    <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i><h3>CSS3</h3></div>
+                    <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
+                    <div class="skill-item"><i class="fab fa-react"></i><h3>React (Podstawy)</h3></div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i><h3>Git</h3></div>
+                    <div class="skill-item"><i class="fas fa-mobile-alt"></i><h3>RWD</h3></div>
+                    <!-- Dodaj więcej umiejętności -->
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Paleta Aktualna -->
-        <div class="palette-group">
-            <h3>Paleta Aktualna (Turkusowo-Różowa)</h3>
-            <div class="swatch-container">
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #2C3E50;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tło Główne (Neutral Dark)</p>
-                        <p class="swatch-value"><code>#2C3E50</code></p>
+        <!-- === Projects Section === -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projekty</h2>
+                <div class="projects-container">
+                    <!-- Projekt 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x200/34495E/F8F9FA?text=Projekt+1" alt="Miniatura projektu 1">
+                        </div>
+                        <div class="project-info">
+                            <h3>Nazwa Projektu 1</h3>
+                            <p>Krótki opis projektu, użyte technologie, cel.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Kod</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #F8F9FA; border: 1px solid #eee;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tekst Główny (Neutral Light)</p>
-                        <p class="swatch-value"><code>#F8F9FA</code></p>
+                    <!-- Projekt 2 -->
+                    <div class="project-card">
+                         <div class="project-image">
+                            <img src="https://via.placeholder.com/400x200/34495E/F8F9FA?text=Projekt+2" alt="Miniatura projektu 2">
+                        </div>
+                        <div class="project-info">
+                            <h3>Nazwa Projektu 2</h3>
+                            <p>Inny opis, może skupiony na responsywności lub API.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Kod</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                 <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #045D5D;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Główny Akcent (Accent)</p>
-                        <p class="swatch-value"><code>#045D5D</code></p>
-                    </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #B0BEC5;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tekst/Ramki (Neutral Medium)</p>
-                        <p class="swatch-value"><code>#B0BEC5</code></p>
-                    </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #F5B7B1;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Subtelny Akcent 1 (Primary 1)</p>
-                        <p class="swatch-value"><code>#F5B7B1</code></p>
-                    </div>
-                </div>
-                <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #EBBED9;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Subtelny Akcent 2 (Primary 2)</p>
-                        <p class="swatch-value"><code>#EBBED9</code></p>
-                    </div>
-                </div>
-                 <div class="color-swatch">
-                    <div class="swatch-color" style="background-color: #34495E;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Tło Kart/Sekcji (Wariant)</p>
-                        <p class="swatch-value"><code>#34495E</code></p>
-                    </div>
+                    <!-- Dodaj więcej projektów -->
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Paleta Przyszła (Placeholder) -->
-        <div class="palette-group">
-            <h3>Paleta Przyszła</h3>
-            <div class="swatch-container">
-                <div class="color-swatch placeholder">
-                    <div class="swatch-color" style="background-color: #eee;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Kolor 1</p>
-                        <p class="swatch-value"><code>#XXXXXX</code></p>
-                    </div>
+         <!-- === Sekcja Palety Kolorów === -->
+         <section id="color-palettes">
+             <div class="container">
+                 <h2 class="section-title">Palety Kolorów</h2>
+
+                 <!-- Paleta Oryginalna -->
+                 <div class="palette-group">
+                     <h3>Paleta Oryginalna (Niebieskie Akcenty)</h3>
+                     <div class="swatch-container">
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #1a1a2e;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Główne Tło</p>
+                                 <p class="swatch-value"><code>#1a1a2e</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #e0e0e0; border: 1px solid #ccc;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tekst Główny</p>
+                                 <p class="swatch-value"><code>#e0e0e0</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #4dabf7;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Akcent (Linki, Przyciski)</p>
+                                 <p class="swatch-value"><code>#4dabf7</code></p>
+                             </div>
+                         </div>
+                          <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #1f1f38;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tło Kart/Sekcji</p>
+                                 <p class="swatch-value"><code>#1f1f38</code></p>
+                             </div>
+                         </div>
+                          <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #adb5bd;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tekst Drugorzędny/Ikony</p>
+                                 <p class="swatch-value"><code>#adb5bd</code></p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Paleta Aktualna -->
+                 <div class="palette-group">
+                     <h3>Paleta Aktualna (Turkusowo-Różowa)</h3>
+                     <div class="swatch-container">
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #2C3E50;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tło Główne (Neutral Dark)</p>
+                                 <p class="swatch-value"><code>#2C3E50</code> / <code>var(--bg-dark)</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #F8F9FA; border: 1px solid #eee;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tekst Główny (Neutral Light)</p>
+                                 <p class="swatch-value"><code>#F8F9FA</code> / <code>var(--text-light)</code></p>
+                             </div>
+                         </div>
+                          <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #045D5D;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Główny Akcent (Accent)</p>
+                                 <p class="swatch-value"><code>#045D5D</code> / <code>var(--accent-main)</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #B0BEC5;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tekst/Ramki (Neutral Medium)</p>
+                                 <p class="swatch-value"><code>#B0BEC5</code> / <code>var(--text-medium)</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #F5B7B1;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Subtelny Akcent 1 (Primary 1)</p>
+                                 <p class="swatch-value"><code>#F5B7B1</code> / <code>var(--accent-subtle1-raw)</code></p> <!-- Dodaję raw, bo w CSS używamy z alpha -->
+                             </div>
+                         </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #EBBED9;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Subtelny Akcent 2 (Primary 2)</p>
+                                 <p class="swatch-value"><code>#EBBED9</code></p>
+                             </div>
+                         </div>
+                          <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #34495E;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Tło Kart/Sekcji (Wariant)</p>
+                                 <p class="swatch-value"><code>#34495E</code> / <code>var(--bg-card)</code></p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Paleta Przyszła (Placeholder) -->
+                 <div class="palette-group">
+                     <h3>Paleta Przyszła</h3>
+                     <div class="swatch-container">
+                         <div class="color-swatch placeholder">
+                             <div class="swatch-color" style="background-color: #eee;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Kolor 1</p>
+                                 <p class="swatch-value"><code>#XXXXXX</code></p>
+                             </div>
+                         </div>
+                         <div class="color-swatch placeholder">
+                             <div class="swatch-color" style="background-color: #eee;"></div>
+                             <div class="swatch-info">
+                                 <p class="swatch-role">Kolor 2</p>
+                                 <p class="swatch-value"><code>#XXXXXX</code></p>
+                             </div>
+                         </div>
+                          <!-- Dodaj więcej placeholderów w razie potrzeby -->
+                     </div>
+                      <p style="text-align: center; color: var(--text-medium); margin-top: 1rem;">(Miejsce na przyszłe palety)</p>
+                 </div>
+
+             </div>
+         </section>
+         <!-- === Koniec Sekcji Palety Kolorów === -->
+
+
+        <!-- === Contact Section === -->
+        <section id="contact">
+            <div class="container contact-container">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:twoj.email@example.com">twoj.email@example.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lokalizacja: Miasto, Kraj (opcjonalnie)</p>
                 </div>
-                <div class="color-swatch placeholder">
-                    <div class="swatch-color" style="background-color: #eee;"></div>
-                    <div class="swatch-info">
-                        <p class="swatch-role">Kolor 2</p>
-                        <p class="swatch-value"><code>#XXXXXX</code></p>
-                    </div>
+                <div class="social-links">
+                    <a href="https://github.com/Prochuu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <!-- Dodaj więcej linków społecznościowych -->
                 </div>
-                 <!-- Dodaj więcej placeholderów w razie potrzeby -->
             </div>
-             <p style="text-align: center; color: #B0BEC5; margin-top: 1rem;">(Miejsce na przyszłe palety)</p>
-        </div>
+        </section>
+    </main>
 
-    </div>
-</section>
-<!-- === Koniec Sekcji Palety Kolorów === -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Paweł Prochownik. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- Skrypt do obsługi przełącznika motywu i hamburgera -->
+    <script src="script.js"></script>
+</body>
+</html>
