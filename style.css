@@ -1,436 +1,114 @@
-/* Reset and Base Styles - kolory zmienione */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #2C3E50; /* Neutral Dark */
-  color: #F8F9FA; /* Neutral Light */
-  line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* --- Header/Navbar --- kolory zmienione */
-header {
-  background: rgba(44, 62, 80, 0.85); /* Neutral Dark z lekką przezroczystością */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  transition: background 0.3s ease;
-  border-bottom: 1px solid rgba(176, 190, 197, 0.1); /* Neutral Medium - subtelna linia */
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo a {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #F8F9FA; /* Neutral Light */
-  text-decoration: none;
-}
-
-.logo span {
-  color: #045D5D; /* Accent */
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #F8F9FA; /* Neutral Light */
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
-  padding-bottom: 0.3rem;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #045D5D; /* Accent */
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #045D5D; /* Accent */
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
-
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #F8F9FA; /* Neutral Light */
-  transition: all 0.3s ease;
-}
-
-/* --- Hero Section --- kolory zmienione */
-#hero {
-  padding-top: 140px; /* Adjust for fixed header */
-  padding-bottom: 80px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-#hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  /* Subtle gradient background or keep solid */
-  /* background: radial-gradient(circle, rgba(4, 93, 93, 0.1), rgba(44, 62, 80, 0) 70%); */
-  /* animation: rotate 20s linear infinite; */
-  z-index: 0;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
-  color: #F8F9FA; /* Neutral Light */
-}
-
-.hero-content h1 span {
-  color: #045D5D; /* Accent */
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  color: #B0BEC5; /* Neutral Medium */
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #045D5D; /* Accent */
-  color: #ffffff; /* Biały tekst na ciemnym akcencie */
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 2px solid #045D5D; /* Accent */
-}
-
-.cta-button:hover {
-  background-color: #034c4c; /* Ciemniejszy odcień Accent */
-  border-color: #034c4c;
-  transform: translateY(-3px);
-}
-
-/* --- Sections General --- kolory zmienione */
-section {
+/* --- Color Palettes Section --- */
+#color-palettes {
+  background-color: #2C3E50; /* Neutral Dark - spójne tło jak reszta */
   padding: 60px 0;
 }
 
-h2.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #F8F9FA; /* Neutral Light */
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-bottom: 0.5rem;
+#color-palettes .container {
+    max-width: 1000px; /* Można dostosować szerokość kontenera dla tej sekcji */
 }
 
-h2.section-title::after {
-  content: '';
-  position: absolute;
-  width: 60px;
-  height: 3px;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #045D5D; /* Accent */
-}
-
-/* --- About Me Section --- kolory bez zmian (tekst dziedziczy) */
-#about {
-   background-color: rgba(52, 73, 94, 0.3); /* Lekko inny odcień tła dla sekcji, jeśli chcemy*/
-   border-radius: 10px; /* Optional */
-   margin-bottom: 30px; /* Optional */
-}
-#about p {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #B0BEC5; /* Neutral Medium */
-}
-
-/* --- Skills Section --- kolory zmienione */
-#skills {
-    background-color: #2C3E50; /* Neutral Dark - spójne tło */
-}
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  text-align: center;
-}
-
-.skill-item {
-  background-color: #34495E; /* Lekko jaśniejszy od Neutral Dark dla karty */
-  padding: 1.5rem 1rem;
+.palette-group {
+  margin-bottom: 3rem; /* Odstęp między grupami palet */
+  background-color: rgba(52, 73, 94, 0.3); /* Tło grupy jak w sekcji About/Contact */
+  padding: 2rem;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(176, 190, 197, 0.1); /* Subtelna ramka */
 }
 
-.skill-item:hover {
-  transform: translateY(-5px);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.skill-item i {
-  font-size: 3rem;
-  color: #045D5D; /* Accent */
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.skill-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0;
+.palette-group h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
   color: #F8F9FA; /* Neutral Light */
 }
 
-/* --- Projects Section --- kolory zmienione */
-#projects {
-    background-color: #2C3E50; /* Neutral Dark */
-}
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.project-card {
-  background-color: #34495E; /* Lekko jaśniejszy od Neutral Dark dla karty */
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.swatch-container {
   display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(176, 190, 197, 0.1); /* Neutral Medium - subtelna ramka */
+  flex-wrap: wrap; /* Kwadraty będą się zawijać */
+  gap: 20px; /* Odstęp między kwadratami */
+  justify-content: center; /* Wyśrodkowanie kwadratów w kontenerze */
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  /* Subtelny akcent różowy w cieniu */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 18px 3px rgba(245, 183, 177, 0.3); /* Primary 1 z przezroczystością */
+.color-swatch {
+  background-color: #34495E; /* Tło karty koloru (jak karty projektów) */
+  border-radius: 8px;
+  padding: 15px;
+  width: 160px; /* Szerokość karty koloru */
+  text-align: center;
+  border: 1px solid rgba(176, 190, 197, 0.1); /* Ramka karty */
+  transition: transform 0.2s ease;
 }
 
-.project-image img {
+.color-swatch:hover:not(.placeholder) { /* Lekkie powiększenie na hover dla nie-placeholderów */
+    transform: scale(1.03);
+}
+
+.swatch-color {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+  height: 80px; /* Wysokość kwadratu z kolorem */
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Cienka ramka wokół koloru, widoczna przy jasnych kolorach */
 }
 
-.project-info {
-  padding: 1.5rem;
-  flex-grow: 1; /* Ensure info area takes remaining space */
-  display: flex;
-  flex-direction: column;
+.swatch-info {
+    /* Można dodać style jeśli potrzeba */
 }
 
-.project-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+.swatch-role {
+  font-size: 0.9em;
+  color: #B0BEC5; /* Neutral Medium */
+  margin-bottom: 5px;
+  min-height: 2.7em; /* Zapewnia miejsce na 2 linie opisu */
+  display: flex; /* Centrowanie tekstu w pionie */
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch-value {
+  font-size: 0.95em;
   color: #F8F9FA; /* Neutral Light */
+  user-select: all; /* Ułatwia kopiowanie kodu HEX */
 }
 
-.project-info p {
-  color: #B0BEC5; /* Neutral Medium */
-  margin-bottom: 1rem;
-  flex-grow: 1; /* Push links to the bottom */
+.swatch-value code {
+  background-color: rgba(44, 62, 80, 0.6); /* Tło dla kodu HEX */
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.project-links a {
-  display: inline-block;
-  margin-right: 1rem;
-  color: #045D5D; /* Accent */
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+/* Style dla placeholderów przyszłej palety */
+.color-swatch.placeholder {
+    opacity: 0.6;
+    border-style: dashed;
+}
+.color-swatch.placeholder .swatch-role,
+.color-swatch.placeholder .swatch-value code {
+    color: #888; /* Ciemniejszy szary dla placeholderów */
+}
+.color-swatch.placeholder .swatch-value code {
+     background-color: transparent;
 }
 
-.project-links a:hover {
-  color: #11a7a7; /* Jaśniejszy Accent na hover */
-  text-decoration: underline;
-}
-.project-links i {
-    margin-right: 0.3rem;
-}
-
-/* --- Contact Section --- kolory zmienione */
-#contact {
-   background-color: rgba(52, 73, 94, 0.3); /* Lekko inny odcień tła */
-   border-radius: 10px; /* Optional */
-}
-.contact-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact-info p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  color: #B0BEC5; /* Neutral Medium */
-}
-
-.contact-info a {
-  color: #045D5D; /* Accent */
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-  color: #11a7a7; /* Jaśniejszy Accent */
-  text-decoration: underline;
-}
-
-.contact-info i {
-    margin-right: 0.5rem;
-    color: #045D5D; /* Accent */
-}
-
-.social-links {
-    margin-top: 2rem;
-}
-
-.social-links a {
-    font-size: 2rem;
-    margin: 0 1rem;
-    color: #B0BEC5; /* Neutral Medium */
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #045D5D; /* Accent */
-    transform: scale(1.1);
-}
-
-
-/* --- Footer --- kolory zmienione */
-footer {
-  background-color: #253444; /* Nieco ciemniejszy od Neutral Dark */
-  color: #B0BEC5; /* Neutral Medium */
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 4rem;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(176, 190, 197, 0.1); /* Neutral Medium - subtelna linia */
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%; /* Position below header */
-    left: 0;
-    width: 100%;
-    background-color: #2C3E50; /* Neutral Dark */
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-top: 1px solid rgba(176, 190, 197, 0.1); /* Neutral Medium */
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 0.5rem 0;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  /* Hamburger Animation */
-  .hamburger.active .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-  .hamburger.active .line2 { opacity: 0; }
-  .hamburger.active .line3 { transform: rotate(45deg) translate(-5px, -6px); }
-
-  .hero-content h1 {
-      font-size: 2.8rem;
-  }
-  .hero-content p {
-      font-size: 1rem;
-  }
-  h2.section-title {
-      font-size: 2rem;
-  }
-}
-
+/* Poprawki responsywności dla palet */
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2.2rem;
+    .color-swatch {
+        width: calc(50% - 10px); /* Dwa kwadraty w rzędzie na małych ekranach */
+        padding: 10px;
     }
-    .cta-button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+    .swatch-color {
+        height: 60px;
+        margin-bottom: 10px;
     }
-    .projects-container {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+     .palette-group h3 {
+        font-size: 1.5rem;
     }
+     .swatch-role {
+         font-size: 0.8em;
+     }
+     .swatch-value {
+         font-size: 0.9em;
+     }
 }
