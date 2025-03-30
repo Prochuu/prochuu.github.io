@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prochuu - Portfolio</title> <!-- Zmień tytuł, jeśli chcesz -->
-    <meta name="description" content="Portfolio programisty front-end. Zobacz moje projekty i umiejętności.">
+    <title>PiekaLenka - Piekarnia i Cukiernia w Krakowie</title>
+    <meta name="description" content="PiekaLenka - Twoja rzemieślnicza piekarnia i cukiernia w Krakowie. Oferujemy świeże pieczywo, pyszne ciasta, torty na zamówienie i słodkie stoły. Sprawdź naszą ofertę!">
+    <meta name="keywords" content="Piekarnia Kraków, Cukiernia Kraków, Torty Kraków, Słodkie stoły Kraków, Pieczywo rzemieślnicze Kraków, PiekaLenka, Ciasta Kraków">
     <!-- Link do CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Link do Font Awesome dla ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Link do Google Fonts (Poppins) -->
+    <!-- Link do Google Fonts (opcjonalnie, jeśli chcesz inne niż w CSS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
 </head>
 <body> <!-- Klasa motywu będzie dodawana przez JS -->
 
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="#">Proch<span>uu</span>.</a>
+                <!-- <img src="logo.png" alt="Logo PiekaLenka"> Zastąp prawdziwym logo -->
+                <a href="#">Pieka<span>Lenka</span></a>
             </div>
             <ul class="nav-links">
-                <li><a href="#about" class="active">O mnie</a></li>
-                <li><a href="#skills">Umiejętności</a></li>
-                <li><a href="#projects">Projekty</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#o-nas">O Nas</a></li>
+                <li><a href="#oferta">Oferta</a></li>
+                <li><a href="#opinie">Opinie</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
                 <li>
                      <!-- Przycisk zmiany motywu -->
                      <button id="theme-toggle" aria-label="Zmień motyw">
-                         <i class="fas fa-sun"></i> <!-- Ikona słońca dla motywu jasnego -->
-                         <i class="fas fa-moon"></i> <!-- Ikona księżyca dla motywu ciemnego -->
+                         <i class="fas fa-sun"></i>
+                         <i class="fas fa-moon"></i>
                      </button>
                 </li>
             </ul>
@@ -44,177 +47,176 @@
 
     <main>
         <!-- === Hero Section === -->
-        <section id="hero">
-            <div class="container hero-content">
-                <h1>Cześć, jestem <span>Paweł</span></h1>
-                <p>Front-End Developer z pasją do tworzenia nowoczesnych i responsywnych interfejsów użytkownika.</p>
-                <a href="#projects" class="cta-button">Zobacz Moje Projekty</a>
+        <section id="hero" style="background-image: url('https://images.unsplash.com/photo-1586900221776-4053380dff40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"> <!-- Zmień na bardziej pasujące tło piekarni -->
+            <div class="hero-content">
+                <h1>Piekarnia z <span>Sercem</span> Krakowa</h1>
+                <p>Odkryj smak prawdziwego, rzemieślniczego pieczywa i wyjątkowych słodkości, tworzonych z pasją w sercu Krakowa.</p>
+                <a href="#kontakt" class="cta-button">Skontaktuj się i poznaj ofertę</a>
             </div>
         </section>
 
-        <!-- === About Me Section === -->
-        <section id="about">
-            <div class="container">
-                <h2 class="section-title">O mnie</h2>
-                <p>
-                    Jestem ambitnym programistą front-end, skupionym na technologiach webowych. Specjalizuję się w HTML, CSS i JavaScript, z rosnącym zainteresowaniem frameworkami takimi jak React. Uwielbiam przekształcać pomysły w interaktywne i estetyczne strony internetowe. Stale się rozwijam, ucząc się nowych technologii i szukając wyzwań, które pozwolą mi poszerzać horyzonty.
-                </p>
-            </div>
-        </section>
-
-        <!-- === Skills Section === -->
-        <section id="skills">
-            <div class="container">
-                <h2 class="section-title">Umiejętności</h2>
-                <div class="skills-container">
-                    <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
-                    <div class="skill-item"><i class="fab fa-css3-alt"></i><h3>CSS3</h3></div>
-                    <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
-                    <div class="skill-item"><i class="fab fa-react"></i><h3>React (Podstawy)</h3></div>
-                    <div class="skill-item"><i class="fab fa-git-alt"></i><h3>Git</h3></div>
-                    <div class="skill-item"><i class="fas fa-mobile-alt"></i><h3>RWD</h3></div>
-                    <!-- Dodaj więcej umiejętności -->
+        <!-- === O Nas Section === -->
+        <section id="o-nas">
+            <div class="container o-nas-container">
+                <div class="o-nas-image">
+                     <img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2b53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Wnętrze piekarni PiekaLenka lub proces pieczenia"> <!-- Zmień zdjęcie -->
+                </div>
+                <div class="o-nas-text">
+                    <h2 class="section-title">Nasza Historia</h2>
+                    <p>W PiekaLenka łączymy tradycyjne receptury przekazywane z pokolenia na pokolenie z nowoczesnym podejściem do cukiernictwa i piekarstwa. Nasza przygoda zaczęła się w [Rok założenia] z miłości do autentycznych smaków i pragnienia dzielenia się nimi. Używamy tylko naturalnych, lokalnych składników, a każdy wypiek tworzymy z sercem.</p>
+                    <p>Naszą misją jest dostarczanie Wam codziennie świeżego, pysznego pieczywa i wyjątkowych słodkości, które umilą każdy dzień. Specjalizujemy się również w tortach na zamówienie i przygotowaniu niezapomnianych słodkich stołów na Wasze uroczystości.</p>
                 </div>
             </div>
         </section>
 
-        <!-- === Projects Section === -->
-        <section id="projects">
+        <!-- === Oferta Section === -->
+        <section id="oferta">
             <div class="container">
-                <h2 class="section-title">Projekty</h2>
-                <div class="projects-container">
-                    <!-- Projekt 1 -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x200/34495E/F8F9FA?text=Projekt+1" alt="Miniatura projektu 1">
-                        </div>
-                        <div class="project-info">
-                            <h3>Nazwa Projektu 1</h3>
-                            <p>Krótki opis projektu, użyte technologie, cel.</p>
-                            <div class="project-links">
-                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
-                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Kod</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Projekt 2 -->
-                    <div class="project-card">
-                         <div class="project-image">
-                            <img src="https://via.placeholder.com/400x200/34495E/F8F9FA?text=Projekt+2" alt="Miniatura projektu 2">
-                        </div>
-                        <div class="project-info">
-                            <h3>Nazwa Projektu 2</h3>
-                            <p>Inny opis, może skupiony na responsywności lub API.</p>
-                            <div class="project-links">
-                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
-                                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Kod</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Dodaj więcej projektów -->
+                <h2 class="section-title">Co u Nas Znajdziesz?</h2>
+                <div class="galeria">
+                     <div class="galeria-item">
+                         <img src="https://images.unsplash.com/photo-1534620808146-d33bb39128b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=770&q=80" alt="Świeże Pieczywo Rzemieślnicze Kraków">
+                         <div class="galeria-item-overlay"><h3>Pieczywo</h3></div>
+                     </div>
+                     <div class="galeria-item">
+                         <img src="https://images.pexels.com/photos/827516/pexels-photo-827516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pyszne Ciasta i Tarty Kraków">
+                          <div class="galeria-item-overlay"><h3>Ciasta</h3></div>
+                     </div>
+                     <div class="galeria-item">
+                         <img src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Torty na Zamówienie Kraków">
+                          <div class="galeria-item-overlay"><h3>Torty</h3></div>
+                     </div>
+                     <div class="galeria-item">
+                         <img src="https://images.pexels.com/photos/3850841/pexels-photo-3850841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Słodkie Stoły Kraków">
+                          <div class="galeria-item-overlay"><h3>Słodkie Stoły</h3></div>
+                     </div>
+                     <div class="galeria-item">
+                         <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Wnętrze Piekarni PiekaLenka">
+                          <div class="galeria-item-overlay"><h3>Nasze Wnętrze</h3></div>
+                     </div>
+                     <div class="galeria-item">
+                         <img src="https://images.unsplash.com/photo-1598373182133-0459681489c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=770&q=80" alt="Detale Produktów PiekaLenka">
+                         <div class="galeria-item-overlay"><h3>Detale</h3></div>
+                     </div>
                 </div>
             </div>
         </section>
 
-         <!-- === Sekcja Palety Kolorów === -->
-         <section id="color-palettes">
+        <!-- === Sezonowa Oferta Section === -->
+        <section id="sezonowa-oferta">
+            <div class="container">
+                <h2 class="section-title">Oferta Sezonowa</h2>
+                <div class="sezonowa-oferta-tresc">
+                    <p><strong>Aktualnie w ofercie (Lato):</strong></p>
+                    <ul>
+                        <li>☀️ Orzeźwiające tarty z owocami leśnymi i kremem cytrynowym</li>
+                        <li>🍓 Ciasta drożdżowe z truskawkami i kruszonką</li>
+                        <li>🍋 Lemoniady domowej roboty</li>
+                        <li>🥐 Lekkie croissanty i słodkie bułeczki</li>
+                    </ul>
+                    <p class="edit-note">[Miejsce na łatwą edycję oferty sezonowej - np. jesienią dodaj szarlotki, zimą pierniki]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Opinie Section === -->
+        <section id="opinie">
+            <div class="container">
+                <h2 class="section-title">Co Mówią Nasi Klienci?</h2>
+                <div class="opinie-kontener">
+                    <div class="opinia">
+                        <p>"Najlepsza piekarnia w Krakowie! Zawsze świeże i pyszne pieczywo, a tort na urodziny córki był arcydziełem. Polecam!"</p>
+                        <p class="opinia-autor">- Anna K.</p>
+                    </div>
+                    <div class="opinia">
+                        <p>"Zamawiałam słodki stół na wesele - wszystko wyglądało i smakowało obłędnie! Goście byli zachwyceni. Pełen profesjonalizm."</p>
+                        <p class="opinia-autor">- Piotr M.</p>
+                    </div>
+                    <div class="opinia">
+                        <p>"Cudowne miejsce z duszą. Przemiła obsługa i te zapachy... Uzależniłam się od Waszych croissantów migdałowych!"</p>
+                        <p class="opinia-autor">- Katarzyna B.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- === Instagram Section === -->
+        <section id="instagram">
+            <div class="container">
+                <h2 class="section-title">Zobacz Nas na Instagramie</h2>
+                <p>Śledź nasze codzienne wypieki, nowości i promocje!</p>
+                <a href="https://www.instagram.com/twojprofil_piekalenka/" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> @PiekaLenka
+                </a>
+                 <div class="instagram-placeholder">
+                    [Tutaj w przyszłości można osadzić feed z Instagrama]
+                </div>
+            </div>
+        </section>
+
+        <!-- === Sekcja Palety Kolorów === -->
+        <section id="color-palettes">
              <div class="container">
                  <h2 class="section-title">Palety Kolorów</h2>
 
-                 <!-- Paleta Oryginalna -->
+                 <!-- Paleta Oryginalna (PiekaLenka) -->
                  <div class="palette-group">
-                     <h3>Paleta Oryginalna (Niebieskie Akcenty)</h3>
+                     <h3>Paleta Pierwotna (Pomarańczowo-Brązowa)</h3>
                      <div class="swatch-container">
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #1a1a2e;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Główne Tło</p>
-                                 <p class="swatch-value"><code>#1a1a2e</code></p>
-                             </div>
+                             <div class="swatch-color" style="background-color: #fdfaf6;"></div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Jasne</p><p class="swatch-value"><code>#fdfaf6</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #e0e0e0; border: 1px solid #ccc;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tekst Główny</p>
-                                 <p class="swatch-value"><code>#e0e0e0</code></p>
-                             </div>
+                             <div class="swatch-color" style="background-color: #6b4f4b;"></div>
+                             <div class="swatch-info"><p class="swatch-role">Tekst/Nagłówki</p><p class="swatch-value"><code>#6b4f4b</code></p></div>
                          </div>
                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #4dabf7;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Akcent (Linki, Przyciski)</p>
-                                 <p class="swatch-value"><code>#4dabf7</code></p>
-                             </div>
+                             <div class="swatch-color" style="background-color: #e48a73;"></div>
+                             <div class="swatch-info"><p class="swatch-role">Akcent (CTA, Hover)</p><p class="swatch-value"><code>#e48a73</code></p></div>
                          </div>
-                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #1f1f38;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tło Kart/Sekcji</p>
-                                 <p class="swatch-value"><code>#1f1f38</code></p>
-                             </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #4a4a4a;"></div>
+                             <div class="swatch-info"><p class="swatch-role">Tekst Ciemny</p><p class="swatch-value"><code>#4a4a4a</code></p></div>
                          </div>
-                          <div class="color-swatch">
-                             <div class="swatch-color" style="background-color: #adb5bd;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tekst Drugorzędny/Ikony</p>
-                                 <p class="swatch-value"><code>#adb5bd</code></p>
-                             </div>
+                         <div class="color-swatch">
+                             <div class="swatch-color" style="background-color: #f1eade;"></div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Sekcji Kontakt</p><p class="swatch-value"><code>#f1eade</code></p></div>
                          </div>
                      </div>
                  </div>
 
-                 <!-- Paleta Aktualna -->
+                 <!-- Paleta Aktualna (Turkusowo-Różowa) -->
                  <div class="palette-group">
                      <h3>Paleta Aktualna (Turkusowo-Różowa)</h3>
                      <div class="swatch-container">
-                         <div class="color-swatch">
+                        <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #2C3E50;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tło Główne (Neutral Dark)</p>
-                                 <p class="swatch-value"><code>#2C3E50</code> / <code>var(--bg-dark)</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Gł. / Tekst Jasny</p><p class="swatch-value"><code>#2C3E50</code><br><code>var(--bg-dark)</code><br><code>var(--text-on-light)</code></p></div>
                          </div>
                          <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #F8F9FA; border: 1px solid #eee;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tekst Główny (Neutral Light)</p>
-                                 <p class="swatch-value"><code>#F8F9FA</code> / <code>var(--text-light)</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Jasne / Tekst Gł.</p><p class="swatch-value"><code>#F8F9FA</code><br><code>var(--bg-light)</code><br><code>var(--text-on-dark)</code></p></div>
                          </div>
                           <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #045D5D;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Główny Akcent (Accent)</p>
-                                 <p class="swatch-value"><code>#045D5D</code> / <code>var(--accent-main)</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Główny Akcent</p><p class="swatch-value"><code>#045D5D</code><br><code>var(--accent-main)</code></p></div>
                          </div>
                          <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #B0BEC5;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tekst/Ramki (Neutral Medium)</p>
-                                 <p class="swatch-value"><code>#B0BEC5</code> / <code>var(--text-medium)</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Tekst Drugorzędny</p><p class="swatch-value"><code>#B0BEC5</code><br><code>var(--text-medium)</code></p></div>
                          </div>
                          <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #F5B7B1;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Subtelny Akcent 1 (Primary 1)</p>
-                                 <p class="swatch-value"><code>#F5B7B1</code> / <code>var(--accent-subtle1-raw)</code></p> <!-- Dodaję raw, bo w CSS używamy z alpha -->
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Akcent Subtelny 1</p><p class="swatch-value"><code>#F5B7B1</code><br><code>var(--accent-subtle1)</code></p></div>
                          </div>
                          <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #EBBED9;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Subtelny Akcent 2 (Primary 2)</p>
-                                 <p class="swatch-value"><code>#EBBED9</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Akcent Subtelny 2</p><p class="swatch-value"><code>#EBBED9</code><br><code>var(--accent-subtle2)</code></p></div>
                          </div>
                           <div class="color-swatch">
                              <div class="swatch-color" style="background-color: #34495E;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Tło Kart/Sekcji (Wariant)</p>
-                                 <p class="swatch-value"><code>#34495E</code> / <code>var(--bg-card)</code></p>
-                             </div>
+                             <div class="swatch-info"><p class="swatch-role">Tło Kart/Sekcji Alt</p><p class="swatch-value"><code>#34495E</code><br><code>var(--bg-card)</code></p></div>
                          </div>
                      </div>
                  </div>
@@ -224,41 +226,59 @@
                      <h3>Paleta Przyszła</h3>
                      <div class="swatch-container">
                          <div class="color-swatch placeholder">
-                             <div class="swatch-color" style="background-color: #eee;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Kolor 1</p>
-                                 <p class="swatch-value"><code>#XXXXXX</code></p>
-                             </div>
+                             <div class="swatch-color"></div><div class="swatch-info"><p class="swatch-role">Kolor 1</p><p class="swatch-value"><code>#XXXXXX</code></p></div>
                          </div>
                          <div class="color-swatch placeholder">
-                             <div class="swatch-color" style="background-color: #eee;"></div>
-                             <div class="swatch-info">
-                                 <p class="swatch-role">Kolor 2</p>
-                                 <p class="swatch-value"><code>#XXXXXX</code></p>
-                             </div>
+                             <div class="swatch-color"></div><div class="swatch-info"><p class="swatch-role">Kolor 2</p><p class="swatch-value"><code>#XXXXXX</code></p></div>
                          </div>
-                          <!-- Dodaj więcej placeholderów w razie potrzeby -->
                      </div>
-                      <p style="text-align: center; color: var(--text-medium); margin-top: 1rem;">(Miejsce na przyszłe palety)</p>
+                      <p class="palette-note">(Miejsce na przyszłe palety)</p>
                  </div>
-
              </div>
          </section>
          <!-- === Koniec Sekcji Palety Kolorów === -->
 
 
-        <!-- === Contact Section === -->
-        <section id="contact">
-            <div class="container contact-container">
-                <h2 class="section-title">Kontakt</h2>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:twoj.email@example.com">twoj.email@example.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Lokalizacja: Miasto, Kraj (opcjonalnie)</p>
+        <!-- === Kontakt Section === -->
+        <section id="kontakt">
+            <div class="container kontakt-container">
+                 <div class="kontakt-form-wrapper">
+                     <h2 class="section-title">Skontaktuj się z Nami</h2>
+                     <p>Masz pytanie? Chcesz zamówić tort lub słodki stół? Napisz do nas!</p>
+                     <!-- UWAGA: Formularz jest nieaktywny na GitHub Pages -->
+                     <form id="contactForm">
+                         <div class="form-group">
+                             <label for="name">Imię:</label>
+                             <input type="text" id="name" name="name" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="email">E-mail:</label>
+                             <input type="email" id="email" name="email" required>
+                        </div>
+                         <div class="form-group">
+                             <label for="message">Wiadomość:</label>
+                             <textarea id="message" name="message" rows="5" required></textarea>
+                         </div>
+                         <button type="submit" class="cta-button">Wyślij (Demo)</button>
+                         <p id="form-message" class="form-status-message"></p>
+                     </form>
+                     <p class="form-inactive-note">(Formularz jest nieaktywny w tej wersji strony. Prosimy o kontakt telefoniczny lub mailowy.)</p>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/Prochuu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <!-- Dodaj więcej linków społecznościowych -->
+                <div class="kontakt-info-wrapper">
+                     <h3>Dane Kontaktowe</h3>
+                     <div class="kontakt-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Adres:</strong><br><span class="edit-placeholder">[Ulica i numer], [Kod pocztowy] Kraków</span></p>
+                        <p><i class="fas fa-phone"></i> <strong>Telefon:</strong><br><a href="tel:+48000000000"><span class="edit-placeholder">[+48 000 000 000]</span></a></p>
+                        <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong><br><a href="mailto:kontakt@piekalenka.pl"><span class="edit-placeholder">[kontakt@piekalenka.pl]</span></a></p>
+                     </div>
+                     <div class="map-placeholder">
+                        <p><strong>Znajdź nas na mapie:</strong></p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.621708176496!2d19.93724827778866!3d50.0614311715972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b1c46f57c2f%3A0x7a525f9f9776282!2sRynek%20G%C5%82%C3%B3wny%2C%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700753474942!5m2!1spl!2spl" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                      <div class="delivery-info">
+                        <h3>Informacje o Dostawie</h3>
+                        <p class="edit-placeholder">[Tutaj wpisz aktualne informacje o możliwościach, kosztach i obszarze dostawy. Np. "Dostawa na terenie Krakowa gratis przy zamówieniu powyżej 100 zł."]</p>
+                     </div>
                 </div>
             </div>
         </section>
@@ -266,7 +286,8 @@
 
     <footer>
         <div class="container">
-            <p>© 2024 Paweł Prochownik. Wszelkie prawa zastrzeżone.</p>
+            <p>© 2024 PiekaLenka. Wszelkie prawa zastrzeżone.</p>
+             <p>Projekt strony: [Twoje Imię/Nazwa - opcjonalnie]</p>
         </div>
     </footer>
 
